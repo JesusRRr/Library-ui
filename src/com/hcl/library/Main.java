@@ -7,14 +7,8 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame();
-		frame.setLocationRelativeTo(null);
-		frame.setTitle("Library UI");
+		Index index = new Index();
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setAlwaysOnTop(true);
-		frame.setSize(new Dimension(500,500));
-		frame.setVisible(true);
 	}
 
 }
