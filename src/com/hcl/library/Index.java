@@ -43,8 +43,8 @@ public class Index extends JFrame {
 
 		// entitySelector configuration
 		entitySelector.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
-		//entitySelector.setBorder(BorderFactory.createEmptyBorder(5,50,10,10));
 		searchSection.add(entitySelector);
+		searchSection.add(Box.createRigidArea(new Dimension(200,80)));
 		
 
 		// serchField configuration
