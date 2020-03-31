@@ -19,6 +19,7 @@ public class Index extends JFrame {
 	private JComboBox<String> entitySelector;
 	private JTextField searchField;
 	private JButton searchButton;
+	private JPanel bookTableSection;
 
 	public Index() {
 		initComponents();
@@ -29,6 +30,7 @@ public class Index extends JFrame {
 		entitySelector = new JComboBox<>();
 		searchField = new JTextField();
 		searchButton = new JButton();
+		bookTableSection = new JPanel();
 
 		// JFrame configuration
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -38,8 +40,13 @@ public class Index extends JFrame {
 
 		// searchSection Panel configuration
 		searchSection.setSize(800, 100);
-		searchSection.setBackground(Color.DARK_GRAY);
+		searchSection.setBackground(Color.white);
 		this.add(searchSection);
+		
+		// bookTableSection Panel configuration
+		bookTableSection.setBounds(0,100,800, 400);
+		bookTableSection.setBackground(Color.DARK_GRAY);
+		this.add(bookTableSection);
 
 		// entitySelector configuration
 		entitySelector.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
