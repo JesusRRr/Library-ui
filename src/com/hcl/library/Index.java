@@ -15,12 +15,24 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
 import javax.swing.plaf.metal.MetalBorders;
+
+import com.sun.org.apache.xpath.internal.axes.SelfIteratorNoPredicate;
 
 public class Index extends JFrame {
 	
 	public Index() {
-		
+		initComponents();
+	}
+	
+	private void initComponents() {
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		this.setSize(800, 500);
+	}
+	
+	public static void main(String[] args) {
+		new Index().setVisible(true);
 	}
 
 }
