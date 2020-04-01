@@ -1,17 +1,21 @@
 package com.hcl.library;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
 public class Index extends JFrame {
@@ -19,7 +23,10 @@ public class Index extends JFrame {
 	private JComboBox<String> entitySelector;
 	private JTextField searchField;
 	private JButton searchButton;
-	private JPanel bookTableSection;
+	private JPanel tableSection;
+	private JScrollPane scrollBookTable;
+	private DefaultTableModel bookTableModel;
+	private JTable bookTable;
 
 	public Index() {
 		initComponents();
@@ -30,7 +37,8 @@ public class Index extends JFrame {
 		entitySelector = new JComboBox<>();
 		searchField = new JTextField();
 		searchButton = new JButton();
-		bookTableSection = new JPanel();
+		tableSection = new JPanel();
+		
 
 		// JFrame configuration
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -43,10 +51,11 @@ public class Index extends JFrame {
 		searchSection.setBackground(Color.white);
 		this.add(searchSection);
 		
-		// bookTableSection Panel configuration
-		bookTableSection.setBounds(0,100,800, 400);
-		bookTableSection.setBackground(Color.DARK_GRAY);
-		this.add(bookTableSection);
+		// tableSection Panel configuration
+		tableSection.setBounds(0,100,800, 400);
+		tableSection.setLayout(null);
+		tableSection.setBackground(Color.DARK_GRAY);
+		this.add(tableSection);
 
 		// entitySelector configuration
 		entitySelector.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
@@ -61,6 +70,33 @@ public class Index extends JFrame {
 		// searchButton configuration 
 		searchButton.setText("Search");
 		searchSection.add(searchButton);
+		
+		//TABLES 
+		
+		//BookTable configuration
+		
+		bookTableModel = new DefaultTableModel();
+		Object[][] data={{1,"lord","1234"}};
+		
+		
+		bookTableModel.addColumn("id");
+		bookTableModel.addColumn("Name");
+		bookTableModel.addColumn("isbn");
+		bookTableModel.addColumn("editorial");
+		bookTableModel.addColumn("edition");
+		bookTableModel.addColumn("language");
+		bookTableModel.addColumn("status");
+		bookTableModel.addRow(data);
+		
+	
+		bookTable = new JTable(bookTableModel);
+		bookTable.setBounds(0, 0, 800, 350);
+		tableSection.add(bookTable);
+		
+		scrollBookTable=new JScrollPane(bookTable,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollBookTable.setBounds(0, 0, 800, 350);
+		tableSection.add(scrollBookTable);
+		
 	}
 
 	public static void main(String[] args) {
