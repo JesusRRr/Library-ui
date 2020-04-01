@@ -48,13 +48,13 @@ public class Index extends JFrame {
 
 		// searchSection Panel configuration
 		searchSection.setSize(800, 100);
-		searchSection.setBackground(Color.white);
+		searchSection.setBackground(Color.LIGHT_GRAY);
 		this.add(searchSection);
 		
 		// tableSection Panel configuration
 		tableSection.setBounds(0,100,800, 400);
 		tableSection.setLayout(null);
-		tableSection.setBackground(Color.DARK_GRAY);
+		tableSection.setBackground(Color.GRAY);
 		this.add(tableSection);
 
 		// entitySelector configuration
@@ -76,7 +76,23 @@ public class Index extends JFrame {
 		//BookTable configuration
 		
 		bookTableModel = new DefaultTableModel();
-		Object[][] data={{1,"lord","1234"}};
+		String[] row= {"1","lord of the rings", "2450"};
+		String[] row1= {"1","lord of the rings", "2450"};
+		String[] row2= {"1","lord of the rings", "2450"};
+		String[] row3= {"1","lord of the rings", "2450"};
+		String[] row4= {"1","lord of the rings", "2450"};
+		String[] row5= {"1","lord of the rings", "2450"};
+		String[] row6= {"1","lord of the rings", "2450"};
+		String[] row7= {"1","lord of the rings", "2450"};
+		String[] row8= {"1","lord of the rings", "2450"};
+		String[] row9= {"1","lord of the rings", "2450"};
+		String[] row10= {"1","lord of the rings", "2450"};
+		String[] row11= {"1","lord of the rings", "2450"};
+		String[] row12= {"1","lord of the rings", "2450"};
+		String[] row13= {"1","lord of the rings", "2450"};
+		String[] row14= {"1","lord of the rings", "2450"};
+		String[] row15= {"1","lord of the rings", "2450"};
+		String[] row16= {"1","lord of the rings", "2450"};
 		
 		
 		bookTableModel.addColumn("id");
@@ -86,15 +102,30 @@ public class Index extends JFrame {
 		bookTableModel.addColumn("edition");
 		bookTableModel.addColumn("language");
 		bookTableModel.addColumn("status");
-		bookTableModel.addRow(data);
-		
+		bookTableModel.addColumn("authors");
+		bookTableModel.addRow(row);
+		bookTableModel.addRow(row1);
+		bookTableModel.addRow(row2);
+		bookTableModel.addRow(row3);
+		bookTableModel.addRow(row4);
+		bookTableModel.addRow(row5);
+		bookTableModel.addRow(row6);
+		bookTableModel.addRow(row7);
+		bookTableModel.addRow(row8);
+		bookTableModel.addRow(row9);
+		bookTableModel.addRow(row10);
+		bookTableModel.addRow(row11);
+		bookTableModel.addRow(row12);
+		bookTableModel.addRow(row13);
+		bookTableModel.addRow(row14);
+		bookTableModel.addRow(row15);
+		bookTableModel.addRow(row16);
 	
 		bookTable = new JTable(bookTableModel);
-		bookTable.setBounds(0, 0, 800, 350);
-		tableSection.add(bookTable);
+
 		
 		scrollBookTable=new JScrollPane(bookTable,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollBookTable.setBounds(0, 0, 800, 350);
+		scrollBookTable.setBounds(25, 25, 750, 200);
 		tableSection.add(scrollBookTable);
 		
 	}
