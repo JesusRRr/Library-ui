@@ -75,7 +75,11 @@ public class Index extends JFrame {
 		
 		//BookTable configuration
 		
-		bookTableModel = new DefaultTableModel();
+		bookTableModel = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
 		String[] row= {"1","lord of the rings", "2450"};
 		String[] row1= {"1","lord of the rings", "2450"};
 		String[] row2= {"1","lord of the rings", "2450"};
@@ -120,7 +124,8 @@ public class Index extends JFrame {
 		bookTableModel.addRow(row14);
 		bookTableModel.addRow(row15);
 		bookTableModel.addRow(row16);
-	
+		
+		bookTableModel.isCellEditable(0, 0);
 		bookTable = new JTable(bookTableModel);
 
 		
