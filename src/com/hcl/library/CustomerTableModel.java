@@ -3,17 +3,13 @@ package com.hcl.library;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class CustomerTableModel extends DefaultTableModel{
+public class CustomerTableModel extends EntityTableModel{
 	
 	public CustomerTableModel() {
 		addColumns();
 		addRows();
 	}
-	
-	@Override
-	public boolean isCellEditable(int row, int column) {
-		return false;
-	}
+
 	
 	void addColumns() {
 		this.addColumn("id");
