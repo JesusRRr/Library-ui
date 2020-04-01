@@ -6,11 +6,11 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class BookTable extends JTable{
+public class EntityTable extends JTable{
 	private DefaultTableModel bookTableModel;
 	private JScrollPane scrollBookTable;
 	
-	public BookTable() {
+	public EntityTable() {
 		bookTableModel = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
 				return false;
