@@ -77,11 +77,9 @@ public class Index extends JFrame {
 		
 		BookTableModel btm = new BookTableModel();
 		bookTable = new JTable(btm);
-
+		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
 		
-		scrollBookTable=new JScrollPane(bookTable,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollBookTable.setBounds(25, 25, 750, 200);
-		tableSection.add(scrollBookTable);
+		tableSection.add(ScrollBookTable.getScrollComponent());
 		
 	}
 
