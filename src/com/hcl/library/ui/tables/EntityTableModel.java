@@ -1,4 +1,4 @@
-package com.hcl.library;
+package com.hcl.library.ui.tables;
 
 import javax.swing.table.DefaultTableModel;
 

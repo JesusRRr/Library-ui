@@ -1,6 +1,5 @@
 package com.hcl.library;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -13,9 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
+
+import com.hcl.library.ui.tables.BookTableModel;
+import com.hcl.library.ui.tables.CustomerTableModel;
+import com.hcl.library.ui.tables.ScrollEntityTable;
 
 @SuppressWarnings("serial")
 public class Index extends JFrame {
@@ -84,7 +86,7 @@ public class Index extends JFrame {
 		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
 		ScrollEntityTable ScrollCustomerTable=new ScrollEntityTable(customerTable);
 		
-		tableSection.add(ScrollCustomerTable.getScrollComponent());
+		tableSection.add(ScrollBookTable.getScrollComponent());
 		
 	}
 

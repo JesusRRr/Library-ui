@@ -1,29 +1,22 @@
-package com.hcl.library;
+package com.hcl.library.ui.tables;
 
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class BookTableModel extends DefaultTableModel{
+public class CustomerTableModel extends EntityTableModel{
 	
-	public BookTableModel() {
+	public CustomerTableModel() {
 		addColumns();
 		addRows();
 	}
-	
-	@Override
-	public boolean isCellEditable(int row, int column) {
-		return false;
-	}
+
 	
 	void addColumns() {
 		this.addColumn("id");
 		this.addColumn("Name");
-		this.addColumn("isbn");
-		this.addColumn("editorial");
-		this.addColumn("edition");
-		this.addColumn("language");
-		this.addColumn("status");
-		this.addColumn("authors");
+		this.addColumn("LastName");
+		this.addColumn("Curp");
+	
 	}
 	
 	void addRows() {
@@ -40,6 +33,6 @@ public class BookTableModel extends DefaultTableModel{
 		this.addRow(row3);
 		this.addRow(row4);
 		this.addRow(row5);
-
+		
 	}
 }

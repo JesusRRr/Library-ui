@@ -1,22 +1,24 @@
-package com.hcl.library;
+package com.hcl.library.ui.tables;
 
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class CustomerTableModel extends EntityTableModel{
+public class BookTableModel extends EntityTableModel{
 	
-	public CustomerTableModel() {
+	public BookTableModel() {
 		addColumns();
 		addRows();
 	}
-
 	
 	void addColumns() {
 		this.addColumn("id");
 		this.addColumn("Name");
-		this.addColumn("LastName");
-		this.addColumn("Curp");
-	
+		this.addColumn("isbn");
+		this.addColumn("editorial");
+		this.addColumn("edition");
+		this.addColumn("language");
+		this.addColumn("status");
+		this.addColumn("authors");
 	}
 	
 	void addRows() {
@@ -33,6 +35,6 @@ public class CustomerTableModel extends EntityTableModel{
 		this.addRow(row3);
 		this.addRow(row4);
 		this.addRow(row5);
-		
+
 	}
 }
