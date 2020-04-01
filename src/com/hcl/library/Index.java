@@ -75,58 +75,8 @@ public class Index extends JFrame {
 		
 		//BookTable configuration
 		
-		bookTableModel = new DefaultTableModel() {
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-		};
-		String[] row= {"1","lord of the rings", "2450"};
-		String[] row1= {"1","lord of the rings", "2450"};
-		String[] row2= {"1","lord of the rings", "2450"};
-		String[] row3= {"1","lord of the rings", "2450"};
-		String[] row4= {"1","lord of the rings", "2450"};
-		String[] row5= {"1","lord of the rings", "2450"};
-		String[] row6= {"1","lord of the rings", "2450"};
-		String[] row7= {"1","lord of the rings", "2450"};
-		String[] row8= {"1","lord of the rings", "2450"};
-		String[] row9= {"1","lord of the rings", "2450"};
-		String[] row10= {"1","lord of the rings", "2450"};
-		String[] row11= {"1","lord of the rings", "2450"};
-		String[] row12= {"1","lord of the rings", "2450"};
-		String[] row13= {"1","lord of the rings", "2450"};
-		String[] row14= {"1","lord of the rings", "2450"};
-		String[] row15= {"1","lord of the rings", "2450"};
-		String[] row16= {"1","lord of the rings", "2450"};
-		
-		
-		bookTableModel.addColumn("id");
-		bookTableModel.addColumn("Name");
-		bookTableModel.addColumn("isbn");
-		bookTableModel.addColumn("editorial");
-		bookTableModel.addColumn("edition");
-		bookTableModel.addColumn("language");
-		bookTableModel.addColumn("status");
-		bookTableModel.addColumn("authors");
-		bookTableModel.addRow(row);
-		bookTableModel.addRow(row1);
-		bookTableModel.addRow(row2);
-		bookTableModel.addRow(row3);
-		bookTableModel.addRow(row4);
-		bookTableModel.addRow(row5);
-		bookTableModel.addRow(row6);
-		bookTableModel.addRow(row7);
-		bookTableModel.addRow(row8);
-		bookTableModel.addRow(row9);
-		bookTableModel.addRow(row10);
-		bookTableModel.addRow(row11);
-		bookTableModel.addRow(row12);
-		bookTableModel.addRow(row13);
-		bookTableModel.addRow(row14);
-		bookTableModel.addRow(row15);
-		bookTableModel.addRow(row16);
-		
-		bookTableModel.isCellEditable(0, 0);
-		bookTable = new JTable(bookTableModel);
+		BookTableModel btm = new BookTableModel();
+		bookTable = new JTable(btm);
 
 		
 		scrollBookTable=new JScrollPane(bookTable,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
