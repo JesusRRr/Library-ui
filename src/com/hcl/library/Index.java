@@ -27,6 +27,7 @@ public class Index extends JFrame {
 	private JScrollPane scrollBookTable;
 	private DefaultTableModel bookTableModel;
 	private JTable bookTable;
+	private JTable customerTable;
 
 	public Index() {
 		initComponents();
@@ -76,10 +77,14 @@ public class Index extends JFrame {
 		//BookTable configuration
 		
 		BookTableModel btm = new BookTableModel();
-		bookTable = new JTable(btm);
-		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
+		CustomerTableModel ctm = new CustomerTableModel();
 		
-		tableSection.add(ScrollBookTable.getScrollComponent());
+		bookTable = new JTable(btm);
+		customerTable = new JTable(ctm);
+		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
+		ScrollEntityTable ScrollCustomerTable=new ScrollEntityTable(customerTable);
+		
+		tableSection.add(ScrollCustomerTable.getScrollComponent());
 		
 	}
 
