@@ -1,7 +1,10 @@
 package com.hcl.library;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.Box;
 import javax.swing.DefaultComboBoxModel;
@@ -15,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
+import com.hcl.library.ui.comboboxes.EntitySelector;
 import com.hcl.library.ui.tables.BookTableModel;
 import com.hcl.library.ui.tables.CustomerTableModel;
 import com.hcl.library.ui.tables.ScrollEntityTable;
@@ -30,6 +34,7 @@ public class Index extends JFrame {
 	private DefaultTableModel bookTableModel;
 	private JTable bookTable;
 	private JTable customerTable;
+	private EntitySelector es;
 
 	public Index() {
 		initComponents();
@@ -41,6 +46,7 @@ public class Index extends JFrame {
 		searchField = new JTextField();
 		searchButton = new JButton();
 		tableSection = new JPanel();
+		es = new EntitySelector();
 		
 
 		// JFrame configuration
@@ -63,7 +69,9 @@ public class Index extends JFrame {
 		// entitySelector configuration
 		entitySelector.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
 		searchSection.add(entitySelector);
-		searchSection.add(Box.createRigidArea(new Dimension(200,80)));
+		es.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
+		searchSection.add(es);
+		//searchSection.add(Box.createRigidArea(new Dimension(200,80)));
 		
 
 		// serchField configuration
@@ -87,9 +95,11 @@ public class Index extends JFrame {
 		ScrollEntityTable ScrollCustomerTable=new ScrollEntityTable(customerTable);
 		
 		tableSection.add(ScrollBookTable.getScrollComponent());
+		//Events 
+		es.choseEntity();
 		
 	}
-
+	
 	public static void main(String[] args) {
 		new Index().setVisible(true);
 	}

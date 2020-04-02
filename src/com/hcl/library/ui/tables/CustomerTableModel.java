@@ -20,6 +20,12 @@ public class CustomerTableModel extends EntityTableModel{
 	}
 	
 	void addRows() {
+		
+		/*TO-DO
+		 *1.-get book from database 
+		 *2.-Do a for-each and addRow to table
+		
+		*/
 		String[] row= {"1","lord of the rings", "2450"};
 		String[] row1= {"1","lord of the rings", "2450"};
 		String[] row2= {"1","lord of the rings", "2450"};
