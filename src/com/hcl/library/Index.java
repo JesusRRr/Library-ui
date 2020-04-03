@@ -46,7 +46,7 @@ public class Index extends JFrame {
 		searchField = new JTextField();
 		searchButton = new JButton();
 		tableSection = new JPanel();
-		entitySelector = new EntitySelector();
+		entitySelector = new EntitySelector(tableSection);
 		
 
 		// JFrame configuration
@@ -83,19 +83,18 @@ public class Index extends JFrame {
 		//TABLES 
 		
 		//BookTable configuration
-		
+		/*
 		BookTableModel btm = new BookTableModel();
 		CustomerTableModel ctm = new CustomerTableModel();
 		
 		bookTable = new JTable(btm);
 		customerTable = new JTable(ctm);
 		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
-		ScrollBookTable.setVisible(false);
 		ScrollEntityTable ScrollCustomerTable=new ScrollEntityTable(customerTable);
 		tableSection.add(ScrollBookTable);
-		tableSection.add(comp);
+		*/
 		//Events 
-		System.out.println(entitySelector.choseEntity());
+		entitySelector.choseEntity();
 		
 	}
 	
