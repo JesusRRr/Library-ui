@@ -90,11 +90,12 @@ public class Index extends JFrame {
 		bookTable = new JTable(btm);
 		customerTable = new JTable(ctm);
 		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
+		ScrollBookTable.setVisible(false);
 		ScrollEntityTable ScrollCustomerTable=new ScrollEntityTable(customerTable);
-		
-		tableSection.add(ScrollBookTable.getScrollComponent());
+		tableSection.add(ScrollBookTable);
+		tableSection.add(comp);
 		//Events 
-		entitySelector.choseEntity();
+		System.out.println(entitySelector.choseEntity());
 		
 	}
 	

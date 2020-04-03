@@ -9,19 +9,29 @@ import javax.swing.JComboBox;
 
 @SuppressWarnings("serial")
 public class EntitySelector extends JComboBox<String>{
+	private String entity;
 	
-	public void choseEntity() {
+	public EntitySelector() {
+		entity="book";
+	}
+	
+	public String choseEntity() {
+		
 		this.addItemListener(new ItemListener() {
-
+		
+			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if(e.getStateChange()==ItemEvent.SELECTED) {
-					System.out.println(getSelectedItem());
+					entity=getSelectedItem().toString();
+					System.out.println(entity);
+					
 				}
 			}
 			
 		});
 		
+		return entity;
 	}
 }
 
