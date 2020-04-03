@@ -3,6 +3,8 @@ package com.hcl.library;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -26,15 +28,14 @@ import com.hcl.library.ui.tables.ScrollEntityTable;
 @SuppressWarnings("serial")
 public class Index extends JFrame {
 	private JPanel searchSection;
-	private JComboBox<String> entitySelector;
 	private JTextField searchField;
 	private JButton searchButton;
 	private JPanel tableSection;
+	private EntitySelector entitySelector;
 	private JScrollPane scrollBookTable;
 	private DefaultTableModel bookTableModel;
 	private JTable bookTable;
 	private JTable customerTable;
-	private EntitySelector es;
 
 	public Index() {
 		initComponents();
@@ -42,11 +43,10 @@ public class Index extends JFrame {
 
 	private void initComponents() {
 		searchSection = new JPanel();
-		entitySelector = new JComboBox<>();
 		searchField = new JTextField();
 		searchButton = new JButton();
 		tableSection = new JPanel();
-		es = new EntitySelector();
+		entitySelector = new EntitySelector();
 		
 
 		// JFrame configuration
@@ -69,9 +69,7 @@ public class Index extends JFrame {
 		// entitySelector configuration
 		entitySelector.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
 		searchSection.add(entitySelector);
-		es.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
-		searchSection.add(es);
-		//searchSection.add(Box.createRigidArea(new Dimension(200,80)));
+		searchSection.add(Box.createRigidArea(new Dimension(200,80)));
 		
 
 		// serchField configuration
@@ -96,7 +94,7 @@ public class Index extends JFrame {
 		
 		tableSection.add(ScrollBookTable.getScrollComponent());
 		//Events 
-		es.choseEntity();
+		entitySelector.choseEntity();
 		
 	}
 	

@@ -1,5 +1,7 @@
 package com.hcl.library.ui.comboboxes;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -7,43 +9,19 @@ import javax.swing.JComboBox;
 
 @SuppressWarnings("serial")
 public class EntitySelector extends JComboBox<String>{
-	private MouseListener selectComboBox;
 	
 	public void choseEntity() {
-		selectComboBox=new MouseListener() {
+		this.addItemListener(new ItemListener() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				System.out.println("combobox selected");
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					System.out.println(getSelectedItem());
+				}
 			}
 			
-		};
+		});
 		
-		this.addMouseListener(selectComboBox);
 	}
 }
+
