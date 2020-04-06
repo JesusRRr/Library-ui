@@ -28,11 +28,11 @@ public class EntitySelector extends JComboBox<String>{
 	private CustomerTableModel customerTableModel;
 	private AuthorTableModel authorTableModel;
 	
-	private ScrollEntityTable ScrollBookTable;
-	private ScrollEntityTable ScrollCustomerTable;
-	private ScrollEntityTable ScrollAuthorTable;
+	private ScrollEntityTable scrollBookTable;
+	private ScrollEntityTable scrollCustomerTable;
+	private ScrollEntityTable scrollAuthorTable;
 	
-	private ScrollEntityTable ActualTable;
+	private ScrollEntityTable actualTable;
 	
 	private JPanel tablePanel;
 	
@@ -53,12 +53,12 @@ public class EntitySelector extends JComboBox<String>{
 		authorTable = new JTable(authorTableModel);
 		
 		//ScrollBars
-		ScrollBookTable =new ScrollEntityTable(bookTable);
-		ScrollCustomerTable=new ScrollEntityTable(customerTable);
-		ScrollAuthorTable=new ScrollEntityTable(authorTable);
+		scrollBookTable =new ScrollEntityTable(bookTable);
+		scrollCustomerTable=new ScrollEntityTable(customerTable);
+		scrollAuthorTable=new ScrollEntityTable(authorTable);
 		
-		this.ActualTable=ScrollBookTable;
-		tablePanel.add(ScrollBookTable);
+		this.actualTable=scrollBookTable;
+		tablePanel.add(scrollBookTable);
 		
 	}
 	
@@ -80,37 +80,29 @@ public class EntitySelector extends JComboBox<String>{
 		return entity;
 	}
 	
-	public ScrollEntityTable getActualTable() {
-		return ActualTable;
-	}
 	
-	public void setActualTable(ScrollEntityTable ActualTable) {
-		this.ActualTable=ActualTable;
+	public void changeTableVisibility(ScrollEntityTable actualTable) {
+		this.actualTable.setVisible(false);
+		this.actualTable=actualTable;
+		this.actualTable.setVisible(true);
 	}
 	
 	public ScrollEntityTable getChoosenTable(String entity) {
 		switch(entity) {
 		case "Books":
 			System.out.println("books was choosen");
-			getActualTable().setVisible(false);
-			setActualTable(ScrollBookTable);
-			ScrollBookTable.setVisible(true);
-			return ScrollBookTable;
-	
-		
+			changeTableVisibility(scrollBookTable);
+			return scrollBookTable;
+
 		case "Customers":
 			System.out.println("customer was choosen");
-			getActualTable().setVisible(false);
-			setActualTable(ScrollCustomerTable);
-			ScrollCustomerTable.setVisible(true);
-			return ScrollCustomerTable;
+			changeTableVisibility(scrollCustomerTable);
+			return scrollCustomerTable;
 		
 		case "Authors":
 			System.out.println("authors was choosen");
-			getActualTable().setVisible(false);
-			setActualTable(ScrollAuthorTable);
-			ScrollAuthorTable.setVisible(true);
-			return ScrollAuthorTable;
+			changeTableVisibility(scrollAuthorTable);
+			return scrollAuthorTable;
 			
 		default:
 			return null;
