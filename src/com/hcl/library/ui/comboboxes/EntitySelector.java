@@ -32,6 +32,8 @@ public class EntitySelector extends JComboBox<String>{
 	private ScrollEntityTable ScrollCustomerTable;
 	private ScrollEntityTable ScrollAuthorTable;
 	
+	private ScrollEntityTable ActualTable;
+	
 	private JPanel tablePanel;
 	
 	
@@ -55,6 +57,7 @@ public class EntitySelector extends JComboBox<String>{
 		ScrollCustomerTable=new ScrollEntityTable(customerTable);
 		ScrollAuthorTable=new ScrollEntityTable(authorTable);
 		
+		this.ActualTable=ScrollBookTable;
 		tablePanel.add(ScrollBookTable);
 		
 	}
@@ -77,19 +80,36 @@ public class EntitySelector extends JComboBox<String>{
 		return entity;
 	}
 	
+	public ScrollEntityTable getActualTable() {
+		return ActualTable;
+	}
+	
+	public void setActualTable(ScrollEntityTable ActualTable) {
+		this.ActualTable=ActualTable;
+	}
+	
 	public ScrollEntityTable getChoosenTable(String entity) {
 		switch(entity) {
 		case "Books":
 			System.out.println("books was choosen");
+			getActualTable().setVisible(false);
+			setActualTable(ScrollBookTable);
+			ScrollBookTable.setVisible(true);
 			return ScrollBookTable;
 	
 		
 		case "Customers":
 			System.out.println("customer was choosen");
+			getActualTable().setVisible(false);
+			setActualTable(ScrollCustomerTable);
+			ScrollCustomerTable.setVisible(true);
 			return ScrollCustomerTable;
 		
 		case "Authors":
 			System.out.println("authors was choosen");
+			getActualTable().setVisible(false);
+			setActualTable(ScrollAuthorTable);
+			ScrollAuthorTable.setVisible(true);
 			return ScrollAuthorTable;
 			
 		default:

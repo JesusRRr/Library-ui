@@ -9,7 +9,6 @@ public class AuthorTableModel extends PersonTableModel{
 	
 	void addColumns() {
 		this.addColumn("Nationality");
-	
 	}
 	
 }

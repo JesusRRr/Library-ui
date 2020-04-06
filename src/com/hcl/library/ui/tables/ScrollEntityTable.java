@@ -5,6 +5,7 @@ import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 
 
+@SuppressWarnings("serial")
 public class ScrollEntityTable extends JScrollPane{
 	private JScrollPane scrollBookTable;
 
