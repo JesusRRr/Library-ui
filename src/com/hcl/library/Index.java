@@ -32,10 +32,7 @@ public class Index extends JFrame {
 	private JButton searchButton;
 	private JPanel tableSection;
 	private EntitySelector entitySelector;
-	private JScrollPane scrollBookTable;
-	private DefaultTableModel bookTableModel;
-	private JTable bookTable;
-	private JTable customerTable;
+
 
 	public Index() {
 		initComponents();
@@ -67,7 +64,6 @@ public class Index extends JFrame {
 		this.add(tableSection);
 
 		// entitySelector configuration
-		entitySelector.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
 		searchSection.add(entitySelector);
 		searchSection.add(Box.createRigidArea(new Dimension(200,80)));
 		
@@ -81,19 +77,7 @@ public class Index extends JFrame {
 		searchSection.add(searchButton);
 		
 		//TABLES 
-		
-		//BookTable configuration
-		/*
-		BookTableModel btm = new BookTableModel();
-		CustomerTableModel ctm = new CustomerTableModel();
-		
-		bookTable = new JTable(btm);
-		customerTable = new JTable(ctm);
-		ScrollEntityTable ScrollBookTable=new ScrollEntityTable(bookTable);
-		ScrollEntityTable ScrollCustomerTable=new ScrollEntityTable(customerTable);
-		tableSection.add(ScrollBookTable);
-		*/
-		//Events 
+
 		entitySelector.choseEntity();
 		
 	}

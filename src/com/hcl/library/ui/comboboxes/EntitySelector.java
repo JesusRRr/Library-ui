@@ -5,6 +5,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -26,6 +27,8 @@ public class EntitySelector extends JComboBox<String>{
 	
 	public EntitySelector(JPanel tablePanel) {
 		this.tablePanel=tablePanel;
+		this.setModel(new DefaultComboBoxModel<String>(new String[] { "Books", "Customers" }));
+
 		bookTableModel = new BookTableModel();
 		customerTableModel = new CustomerTableModel();
 		bookTable = new JTable(bookTableModel);
