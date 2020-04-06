@@ -3,12 +3,12 @@ package com.hcl.library.ui.tables;
 @SuppressWarnings("serial")
 public abstract class  PersonTableModel extends EntityTableModel{
 	public PersonTableModel() {
-		addColumns();
-		addRows();
+		Columns();
+		Rows();
 	}
 
 	
-	void addColumns() {
+	void Columns() {
 		this.addColumn("id");
 		this.addColumn("Name");
 		this.addColumn("LastName");
@@ -16,7 +16,7 @@ public abstract class  PersonTableModel extends EntityTableModel{
 	
 	}
 	
-	void addRows() {
+	void Rows() {
 		
 		/*TO-DO
 		 *1.-get book from database 

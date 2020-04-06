@@ -63,7 +63,6 @@ public class EntitySelector extends JComboBox<String>{
 		
 		this.addItemListener(new ItemListener() {
 		
-			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if(e.getStateChange()==ItemEvent.SELECTED) {

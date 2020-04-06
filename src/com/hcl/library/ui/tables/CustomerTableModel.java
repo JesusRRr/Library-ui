@@ -1,9 +1,8 @@
 package com.hcl.library.ui.tables;
 
-import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class CustomerTableModel extends EntityTableModel{
+public class CustomerTableModel extends PersonTableModel{
 	
 	public CustomerTableModel() {
 		addColumns();
@@ -12,10 +11,9 @@ public class CustomerTableModel extends EntityTableModel{
 
 	
 	void addColumns() {
-		this.addColumn("id");
-		this.addColumn("Name");
-		this.addColumn("LastName");
-		this.addColumn("Curp");
+		this.addColumn("Phone");
+		this.addColumn("email");
+		this.addColumn("status");
 	
 	}
 	

@@ -4,9 +4,12 @@ package com.hcl.library.ui.tables;
 public class AuthorTableModel extends PersonTableModel{
 	
 	public AuthorTableModel() {
-		
+		addColumns();
 	}
 	
+	void addColumns() {
+		this.addColumn("Nationality");
 	
+	}
 	
 }
