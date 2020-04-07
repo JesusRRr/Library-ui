@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import com.hcl.library.ui.tables.AuthorTableModel;
 import com.hcl.library.ui.tables.BookTableModel;
 import com.hcl.library.ui.tables.CustomerTableModel;
-import com.hcl.library.ui.tables.EntityTable;
+import com.hcl.library.ui.tables.ScrollEntityTable;
 
 @SuppressWarnings("serial")
 public class EntitySelector extends JComboBox<String>{
@@ -28,11 +28,11 @@ public class EntitySelector extends JComboBox<String>{
 	private CustomerTableModel customerTableModel;
 	private AuthorTableModel authorTableModel;
 	
-	private EntityTable scrollBookTable;
-	private EntityTable scrollCustomerTable;
-	private EntityTable scrollAuthorTable;
+	private ScrollEntityTable scrollBookTable;
+	private ScrollEntityTable scrollCustomerTable;
+	private ScrollEntityTable scrollAuthorTable;
 	
-	private EntityTable actualTable;
+	private ScrollEntityTable actualTable;
 	
 	private JPanel tablePanel;
 	
@@ -53,9 +53,9 @@ public class EntitySelector extends JComboBox<String>{
 		authorTable = new JTable(authorTableModel);
 		
 		//ScrollBars
-		scrollBookTable =new EntityTable(bookTable);
-		scrollCustomerTable=new EntityTable(customerTable);
-		scrollAuthorTable=new EntityTable(authorTable);
+		scrollBookTable =new ScrollEntityTable(bookTable);
+		scrollCustomerTable=new ScrollEntityTable(customerTable);
+		scrollAuthorTable=new ScrollEntityTable(authorTable);
 		
 		this.actualTable=scrollBookTable;
 		tablePanel.add(scrollBookTable);
@@ -81,13 +81,13 @@ public class EntitySelector extends JComboBox<String>{
 	}
 	
 	
-	public void changeTableVisibility(EntityTable actualTable) {
+	public void changeTableVisibility(ScrollEntityTable actualTable) {
 		this.actualTable.setVisible(false);
 		this.actualTable=actualTable;
 		this.actualTable.setVisible(true);
 	}
 	
-	public EntityTable getChoosenTable(String entity) {
+	public ScrollEntityTable getChoosenTable(String entity) {
 		switch(entity) {
 		case "Books":
 			System.out.println("books was choosen");
