@@ -6,12 +6,14 @@ import javax.swing.WindowConstants;
 
 @SuppressWarnings("serial")
 public class EntityFormView extends JFrame{
-	private JPanel formSection;
+	protected JPanel formSection;
 	
 	public EntityFormView() {
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setSize(500, 800);
+		this.setSize(500, 650);
 		this.setResizable(false);
 		this.setLayout(null);
+		this.add(formSection=new JPanel(null));
+		
 	}
 }
