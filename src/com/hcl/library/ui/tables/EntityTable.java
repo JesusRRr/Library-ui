@@ -6,10 +6,10 @@ import javax.swing.ScrollPaneConstants;
 
 
 @SuppressWarnings("serial")
-public class ScrollEntityTable extends JScrollPane{
+public class EntityTable extends JScrollPane{
 	private JScrollPane scrollBookTable;
 
-	public ScrollEntityTable(JTable entityTable){
+	public EntityTable(JTable entityTable){
 		super(entityTable);
 		this.setBounds(25, 25, 750, 300);
 	}

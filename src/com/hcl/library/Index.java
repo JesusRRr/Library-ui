@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import com.hcl.library.ui.comboboxes.EntitySelector;
 import com.hcl.library.ui.tables.BookTableModel;
 import com.hcl.library.ui.tables.CustomerTableModel;
-import com.hcl.library.ui.tables.ScrollEntityTable;
+import com.hcl.library.ui.tables.EntityTable;
 
 @SuppressWarnings("serial")
 public class Index extends JFrame {
