@@ -1,4 +1,4 @@
-package com.hcl.library;
+package com.hcl.library.ui.view;
 
 import java.awt.Color;
 import java.awt.Component;
