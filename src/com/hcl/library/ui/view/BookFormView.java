@@ -12,19 +12,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.hcl.library.ui.buttons.AuthorButtonField;
+
 @SuppressWarnings("serial")
 public class BookFormView extends EntityFormView{
 	private JButton submitButton;
-	private JPanel namePanel;
 	private List<String> fields;
+	private AuthorButtonField authorbutton;
 	
 	public BookFormView() {
 		initComponents();
 	}
 	
 	private void initComponents() {
-		namePanel=new JPanel();
-		submitButton=new JButton("pero");
 		fields =Arrays.asList
 			(
 				"Name",
@@ -43,14 +43,13 @@ public class BookFormView extends EntityFormView{
 			FieldObjects.add(fieldObject);
 			getPanel().add(fieldObject);
 		}
-		
+		authorbutton=new AuthorButtonField();
 		submitButton=new JButton("Submit");
-		submitButton.setSize(50, 20);
-		getPanel().setLayout(new GridLayout(fields.size()+3,1));
-
 		
+		
+		getPanel().add(authorbutton);
 		getPanel().add(submitButton);
-		
+		getPanel().setLayout(new GridLayout(fields.size()+2,1));
 		
 	}
 

@@ -19,7 +19,7 @@ public class EntityFormView extends JFrame{
 		this.setResizable(false);
 		this.setLayout(null);
 		formSection= new JPanel();
-		formSection.setSize(500,650);
+		formSection.setSize(500,600);
 		formSection.setBackground(Color.GRAY);
 		this.add(formSection);
 		
