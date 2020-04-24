@@ -13,12 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class BookEntityView extends EntityFormView{
+public class BookFormView extends EntityFormView{
 	private JButton submitButton;
 	private JPanel namePanel;
 	private List<String> fields;
 	
-	public BookEntityView() {
+	public BookFormView() {
 		initComponents();
 	}
 	
