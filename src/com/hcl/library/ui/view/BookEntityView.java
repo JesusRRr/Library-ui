@@ -3,6 +3,9 @@ package com.hcl.library.ui.view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -11,10 +14,9 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class BookEntityView extends EntityFormView{
-	private JTextField nameField;
-	private JLabel label;
 	private JButton submitButton;
 	private JPanel namePanel;
+	private List<String> fields;
 	
 	public BookEntityView() {
 		initComponents();
@@ -23,26 +25,28 @@ public class BookEntityView extends EntityFormView{
 	private void initComponents() {
 		namePanel=new JPanel();
 		submitButton=new JButton("pero");
-		label = new JLabel("hola");
+		fields =Arrays.asList
+			(
+				"Name",
+				"isbn",
+				"Edition",
+				"Editorial",
+				"Category",
+				"Language",
+				"Bookcover",
+				"Status"
+			);
 		
-		JLabel nameLabel = new JLabel("Name");
-		JTextField nameInput = new JTextField("",30);
+		List<EntityField> FieldObjects = new ArrayList<>();
+		for(String field: fields) {
+			EntityField fieldObject=new EntityField(field);
+			FieldObjects.add(fieldObject);
+			getPanel().add(fieldObject);
+		}
 		
-		namePanel.add(nameLabel);
-		namePanel.add(nameInput);
-		getPanel().add(namePanel);
-		
-		JLabel isbnLabel = new JLabel("isbn");
-		JLabel editionLabel = new JLabel("Edition");
-		JLabel editorialLabel = new JLabel("Editorial");
-		JLabel categoryLabel = new JLabel("Category");
-		JLabel languageLabel = new JLabel("Language");
-		JLabel bookcoverLabel = new JLabel("Bookcover");
-		JLabel statusLabel = new JLabel("Status");
-		JLabel authorsLabel = new JLabel("Authors");
-		JButton submitButton=new JButton("Submit");
+		submitButton=new JButton("Submit");
 		submitButton.setSize(50, 20);
-		getPanel().setLayout(new GridLayout(16,1));
+		getPanel().setLayout(new GridLayout(fields.size()+3,1));
 
 		
 		getPanel().add(submitButton);

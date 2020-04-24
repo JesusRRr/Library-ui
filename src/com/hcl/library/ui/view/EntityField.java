@@ -11,5 +11,15 @@ public class EntityField extends JPanel{
 	public EntityField(String field){
 		entityLabelField=new JLabel(field);
 		entityInputField=new JTextField("", 30);
+		this.add(entityLabelField);
+		this.add(entityInputField);
 	}
+
+	public String getEntityLabelField() {
+		return entityLabelField.getText();
+	}
+
+	
+	
+	
 }
