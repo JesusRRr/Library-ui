@@ -19,6 +19,7 @@ public class BookFormView extends EntityFormView{
 	private JButton submitButton;
 	private List<String> fields;
 	private AuthorButtonField authorbutton;
+	private JPanel submitPanel;
 	
 	public BookFormView() {
 		initComponents();
@@ -45,11 +46,12 @@ public class BookFormView extends EntityFormView{
 		}
 		authorbutton=new AuthorButtonField();
 		submitButton=new JButton("Submit");
-		
+		submitPanel=new JPanel();
+		submitPanel.add(submitButton);
 		
 		getPanel().add(authorbutton);
-		getPanel().add(submitButton);
-		getPanel().setLayout(new GridLayout(fields.size()+2,1));
+		getPanel().add(submitPanel);
+		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
 		
 	}
 

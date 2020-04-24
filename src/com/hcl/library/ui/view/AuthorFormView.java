@@ -6,9 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class AuthorFormView extends EntityFormView{
 	private JButton submitButton;
+	private JPanel submitPanel;
 	private List<String> fields;
 	
 	public AuthorFormView() {
@@ -31,10 +33,12 @@ public class AuthorFormView extends EntityFormView{
 		
 		submitButton=new JButton("Submit");
 		submitButton.setSize(50, 20);
-		getPanel().setLayout(new GridLayout(fields.size()+1,1));
-
+		submitPanel=new JPanel();
+		submitPanel.add(submitButton);
 		
-		getPanel().add(submitButton);
+		getPanel().setLayout(new GridLayout(fields.size()+1,1));
+		
+		getPanel().add(submitPanel);
 	}
 
 }
