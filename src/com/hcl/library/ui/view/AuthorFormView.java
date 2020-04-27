@@ -35,10 +35,12 @@ public class AuthorFormView extends EntityFormView{
 		submitButton.setSize(50, 20);
 		submitPanel=new JPanel();
 		submitPanel.add(submitButton);
-		
-		getPanel().setLayout(new GridLayout(fields.size()+1,1));
-		
+	
 		getPanel().add(submitPanel);
+		
+		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
+		
+		getPanel().setSize(500, getPanel().getComponentCount()*60);
 	}
 
 }

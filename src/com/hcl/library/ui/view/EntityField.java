@@ -18,6 +18,10 @@ public class EntityField extends JPanel{
 	public String getEntityLabelField() {
 		return entityLabelField.getText();
 	}
+	
+	public String getInput() {
+		return entityInputField.getText();
+	}
 
 	
 	
