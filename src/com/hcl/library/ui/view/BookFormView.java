@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 import com.hcl.library.exceptions.InvalidFieldException;
 import com.hcl.library.model.bo.BookBO;
@@ -22,6 +23,7 @@ import com.hcl.library.service.BookService;
 public class BookFormView extends EntityFormView{
 	private JButton submitButton;
 	private List<String> fields;
+	private AuthorFiledsPanel authorFieldsPanel;
 	
 	private JPanel submitPanel;
 	
@@ -50,12 +52,15 @@ public class BookFormView extends EntityFormView{
 		}
 		submitButton=new JButton("Submit");
 		submitPanel=new JPanel();
-		submitPanel.add(submitButton);
+		authorFieldsPanel= new AuthorFiledsPanel();
 		
+		submitPanel.add(submitButton);
+		getPanel().add(authorFieldsPanel.getInputPanel());
+		getPanel().add(authorFieldsPanel.getTablePanel());
 		getPanel().add(submitPanel);
 		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
-		getPanel().setSize(500, getPanel().getComponentCount()*60);
-		getFrame().setSize(600, getPanel().getComponentCount()*65);
+		getPanel().setSize(650, getPanel().getComponentCount()*60);
+		getFrame().setSize(700, getPanel().getComponentCount()*65);
 		
 		
 		ActionListener saveBook=new ActionListener() {
@@ -71,12 +76,13 @@ public class BookFormView extends EntityFormView{
 				book.setLanguage(FieldObjects.get(5).getInput());
 				book.setBookcover(FieldObjects.get(6).getInput());
 				//book.setStatus(FieldObjects.get(7).getInput());
-				
+				book.setAuthors(authorFieldsPanel.getAuthors());
 				try {
 					BookService.getInstance().createBook(book);
 				} catch (InvalidFieldException e1) {
 					e1.printStackTrace();
 				}
+				
 			}
 		};
 				
