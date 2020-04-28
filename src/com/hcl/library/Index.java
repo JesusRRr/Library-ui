@@ -9,6 +9,5 @@ public class Index {
 	public static void main(String[] args) {
 		new TablesView().setVisible(false);
 		new BookFormView().setVisible(true);
-		new AuthorFormView().setVisible(true);
 	}
 }

@@ -24,6 +24,9 @@ public class EntityFormView extends JFrame{
 		this.add(formSection);
 		
 	}
+	public JFrame getFrame() {
+		return this;
+	}
 	
 	public JPanel getPanel() {
 		return this.formSection;

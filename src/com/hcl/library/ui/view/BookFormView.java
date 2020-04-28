@@ -17,13 +17,12 @@ import javax.swing.JTextField;
 import com.hcl.library.exceptions.InvalidFieldException;
 import com.hcl.library.model.bo.BookBO;
 import com.hcl.library.service.BookService;
-import com.hcl.library.ui.buttons.AuthorButtonField;
 
 @SuppressWarnings("serial")
 public class BookFormView extends EntityFormView{
 	private JButton submitButton;
 	private List<String> fields;
-	private AuthorButtonField authorbutton;
+	
 	private JPanel submitPanel;
 	
 	public BookFormView() {
@@ -49,15 +48,14 @@ public class BookFormView extends EntityFormView{
 			FieldObjects.add(fieldObject);
 			getPanel().add(fieldObject);
 		}
-		authorbutton=new AuthorButtonField();
 		submitButton=new JButton("Submit");
 		submitPanel=new JPanel();
 		submitPanel.add(submitButton);
 		
-		getPanel().add(authorbutton);
 		getPanel().add(submitPanel);
 		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
 		getPanel().setSize(500, getPanel().getComponentCount()*60);
+		getFrame().setSize(600, getPanel().getComponentCount()*65);
 		
 		
 		ActionListener saveBook=new ActionListener() {
