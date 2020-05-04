@@ -1,45 +1,43 @@
 package com.hcl.library.ui.tables;
 
-import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import com.hcl.library.model.po.BookPO;
+import com.hcl.library.service.BookService;
 
 @SuppressWarnings("serial")
 public class BookTableModel extends EntityTableModel{
+	private String[] fields={"id","Name","isbn","editorial","edition","language","status"};
 	
 	public BookTableModel() {
 		addColumns();
 		addRows();
 	}
 	
-	void addColumns() {
-		this.addColumn("id");
-		this.addColumn("Name");
-		this.addColumn("isbn");
-		this.addColumn("editorial");
-		this.addColumn("edition");
-		this.addColumn("language");
-		this.addColumn("status");
-		this.addColumn("authors");
+	private void addColumns() {
+		for(String field: fields) {
+			this.addColumn(field);
+		}
 	}
 	
-	void addRows() {
-		/*TO-DO
-		 *1.-get book from database 
-		 *2.-Do a for-each and addRow to table
-		
-		*/
-		String[] row= {"1","lord of the rings", "2450"};
-		String[] row1= {"1","lord of the rings", "2450"};
-		String[] row2= {"1","lord of the rings", "2450"};
-		String[] row3= {"1","lord of the rings", "2450"};
-		String[] row4= {"1","lord of the rings", "2450"};
-		String[] row5= {"1","lord of the rings", "2450"};
+	private void addRows() {
+		refreshData();
+	}
 	
-		this.addRow(row);
-		this.addRow(row1);
-		this.addRow(row2);
-		this.addRow(row3);
-		this.addRow(row4);
-		this.addRow(row5);
+	private void refreshData() {
+		  List<BookPO> books= BookService.getInstance().findAll();
 
+		  Object[][] booksAsObjects = new  Object[books.size()][fields.length];
+		  for(int row=0;row<books.size();row++) {
+			  booksAsObjects[row][0]=books.get(row).getId();
+			  booksAsObjects[row][1]=books.get(row).getName();
+			  booksAsObjects[row][2]=books.get(row).getIsbn();
+			  booksAsObjects[row][3]=books.get(row).getEditorial();
+			  booksAsObjects[row][4]=books.get(row).getEdition();
+			  booksAsObjects[row][5]=books.get(row).getLanguage();
+			  booksAsObjects[row][6]=books.get(row).getStatus();
+			  
+			  this.addRow(booksAsObjects[row]);
+		  }
+		 
 	}
 }

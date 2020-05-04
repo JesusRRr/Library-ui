@@ -75,11 +75,11 @@ public class BookFormView extends EntityFormView{
 				book.setCategory(FieldObjects.get(4).getInput());
 				book.setLanguage(FieldObjects.get(5).getInput());
 				book.setBookcover(FieldObjects.get(6).getInput());
-				//book.setStatus(FieldObjects.get(7).getInput());
+				book.setStatus(FieldObjects.get(7).getBookStatusInput());
 				book.setAuthors(authorFieldsPanel.getAuthors());
 				try {
 					BookService.getInstance().createBook(book);
-				} catch (InvalidFieldException e1) {
+				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 				

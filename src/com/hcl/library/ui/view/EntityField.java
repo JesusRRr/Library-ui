@@ -4,6 +4,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.hcl.library.model.enums.StatusBook;
+
 public class EntityField extends JPanel{
 	JLabel entityLabelField;
 	JTextField entityInputField;
@@ -22,7 +24,11 @@ public class EntityField extends JPanel{
 	public String getInput() {
 		return entityInputField.getText();
 	}
-
+	
+	public StatusBook getBookStatusInput() {
+		String status=entityInputField.getText();
+		return StatusBook.valueOf(status);
+	}
 	
 	
 	
