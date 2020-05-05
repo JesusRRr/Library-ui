@@ -8,6 +8,6 @@ public class Index {
 	public static void main(String[] args) {
 		new TablesView().setVisible(true);
 		new BookFormView().setVisible(false);
-		new BookView().setVisible(false);
+		//new BookView().setVisible(false);
 	}
 }

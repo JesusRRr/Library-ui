@@ -3,6 +3,8 @@ package com.hcl.library.ui.view;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
@@ -22,6 +24,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+import com.hcl.library.model.bo.BookBO;
+import com.hcl.library.model.po.BookPO;
+import com.hcl.library.service.BookService;
 import com.hcl.library.ui.comboboxes.EntitySelector;
 import com.hcl.library.ui.tables.BookTableModel;
 import com.hcl.library.ui.tables.CustomerTableModel;
@@ -34,6 +39,8 @@ public class TablesView extends JFrame {
 	private JButton searchButton;
 	private JPanel tableSection;
 	private EntitySelector entitySelector;
+	private BookView bookView;
+	private String bookName;
 
 
 	public TablesView() {
@@ -78,7 +85,8 @@ public class TablesView extends JFrame {
 			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				searchField.setText(entitySelector.getBookTable().getValueAt(entitySelector.getBookTable().getSelectedRow(), 1).toString());
+				bookName=entitySelector.getBookTable().getValueAt(entitySelector.getBookTable().getSelectedRow(), 1).toString();
+				searchField.setText(bookName);
 				 
 			}
 		});
@@ -86,6 +94,20 @@ public class TablesView extends JFrame {
 		// searchButton configuration 
 		searchButton.setText("Search");
 		searchSection.add(searchButton);
+		
+		ActionListener searchBook=new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BookPO bookFound =BookService.getInstance().findByName(bookName);
+				bookView=new BookView(bookFound);
+				bookView.setVisible(true);
+			}
+			
+		};
+		
+		
+		searchButton.addActionListener(searchBook);
 		
 		//TABLES 
 

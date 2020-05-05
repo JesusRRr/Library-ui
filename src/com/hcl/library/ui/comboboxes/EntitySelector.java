@@ -100,17 +100,17 @@ public class EntitySelector extends JComboBox<String>{
 	public ScrollEntityTable getChoosenTable(String entity) {
 		switch(entity) {
 		case "Books":
-			System.out.println("books was choosen");
+			//System.out.println("books was choosen");
 			changeTableVisibility(scrollBookTable);
 			return scrollBookTable;
 
 		case "Customers":
-			System.out.println("customer was choosen");
+			//System.out.println("customer was choosen");
 			changeTableVisibility(scrollCustomerTable);
 			return scrollCustomerTable;
 		
 		case "Authors":
-			System.out.println("authors was choosen");
+			//System.out.println("authors was choosen");
 			changeTableVisibility(scrollAuthorTable);
 			return scrollAuthorTable;
 			

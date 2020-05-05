@@ -8,12 +8,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class BookImage extends JPanel{
 	private BufferedImage image;
 	
-	public BookImage(){
+	public BookImage(String imageName){
+		
 		try {
-			image = ImageIO.read(new File("/home/jesusrr/projects/ProjectLibrary/Images/IRobot.jpg"));
+			image = ImageIO.read(new File("/home/jesusrr/projects/ProjectLibrary/Images/"+imageName+".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -23,7 +25,10 @@ public class BookImage extends JPanel{
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(image,0, 0, this);
+		if(image!=null) {
+			g.drawImage(image,0, 0, this);
+		}
+		
 	}
 	
 }
