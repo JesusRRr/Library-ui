@@ -38,6 +38,7 @@ public class BookTableModel extends EntityTableModel{
 			  booksAsObjects[row][7]=books.get(row).getAuthors().get(0).getLastName();
 			  
 			  this.addRow(booksAsObjects[row]);
+			  this.getTableModelListeners();
 		  }
 		 
 	}

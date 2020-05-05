@@ -9,6 +9,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import com.hcl.library.ui.tables.AuthorTableModel;
 import com.hcl.library.ui.tables.BookTableModel;
@@ -36,6 +38,7 @@ public class EntitySelector extends JComboBox<String>{
 	
 	private JPanel tablePanel;
 	
+	private String BookSelected; 
 	
 	public EntitySelector(JPanel tablePanel) {
 		this.tablePanel=tablePanel;
@@ -52,14 +55,27 @@ public class EntitySelector extends JComboBox<String>{
 		customerTable = new JTable(customerTableModel);
 		authorTable = new JTable(authorTableModel);
 		
+		bookTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				BookSelected=bookTable.getValueAt(bookTable.getSelectedRow(), 1).toString();
+			}
+		});
+		
 		//ScrollBars
 		scrollBookTable =new ScrollEntityTable(bookTable);
 		scrollCustomerTable=new ScrollEntityTable(customerTable);
 		scrollAuthorTable=new ScrollEntityTable(authorTable);
 		
+		
 		this.actualTable=scrollBookTable;
 		tablePanel.add(scrollBookTable);
 		
+	}
+	
+	public String getBookChoosen() {
+		return BookSelected;
 	}
 	
 	public String choseEntity() {

@@ -6,8 +6,8 @@ import com.hcl.library.ui.view.TablesView;
 
 public class Index {
 	public static void main(String[] args) {
-		new TablesView().setVisible(false);
+		new TablesView().setVisible(true);
 		new BookFormView().setVisible(false);
-		new BookView().setVisible(true);
+		new BookView().setVisible(false);
 	}
 }
