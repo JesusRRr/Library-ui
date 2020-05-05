@@ -1,7 +1,11 @@
 package com.hcl.library.ui.view;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -11,6 +15,7 @@ public class BookView extends JFrame{
 	private JPanel mainPanel;
 	private JPanel imagePanel;
 	private JPanel dataPanel;
+	private BufferedImage image;
 	
 	public BookView() {
 		this.setSize(800,600);
@@ -38,6 +43,10 @@ public class BookView extends JFrame{
 		
 		mainPanel.add(imagePanel);
 		mainPanel.add(dataPanel);
+		getImage();
+	}
+	
+	private void getImage(){
 		
 	}
 }
