@@ -18,6 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import com.hcl.library.ui.comboboxes.EntitySelector;
@@ -72,7 +74,14 @@ public class TablesView extends JFrame {
 		searchField.setColumns(25);
 		searchSection.add(searchField);
 	
-		System.out.println(entitySelector.getBookChoosen());
+			entitySelector.getBookTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				searchField.setText(entitySelector.getBookTable().getValueAt(entitySelector.getBookTable().getSelectedRow(), 1).toString());
+				 
+			}
+		});
 
 		// searchButton configuration 
 		searchButton.setText("Search");

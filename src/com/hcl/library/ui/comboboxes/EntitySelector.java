@@ -55,13 +55,7 @@ public class EntitySelector extends JComboBox<String>{
 		customerTable = new JTable(customerTableModel);
 		authorTable = new JTable(authorTableModel);
 		
-		bookTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				BookSelected=bookTable.getValueAt(bookTable.getSelectedRow(), 1).toString();
-			}
-		});
+		
 		
 		//ScrollBars
 		scrollBookTable =new ScrollEntityTable(bookTable);
@@ -74,8 +68,8 @@ public class EntitySelector extends JComboBox<String>{
 		
 	}
 	
-	public String getBookChoosen() {
-		return BookSelected;
+	public JTable getBookTable() {
+		return bookTable;
 	}
 	
 	public String choseEntity() {
