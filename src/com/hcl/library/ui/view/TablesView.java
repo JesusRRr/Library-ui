@@ -71,6 +71,8 @@ public class TablesView extends JFrame {
 		// serchField configuration
 		searchField.setColumns(25);
 		searchSection.add(searchField);
+	
+		System.out.println(entitySelector.getBookChoosen());
 
 		// searchButton configuration 
 		searchButton.setText("Search");
