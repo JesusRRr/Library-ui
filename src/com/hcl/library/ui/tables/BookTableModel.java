@@ -6,7 +6,7 @@ import com.hcl.library.service.BookService;
 
 @SuppressWarnings("serial")
 public class BookTableModel extends EntityTableModel{
-	private String[] fields={"id","Name","isbn","editorial","edition","language","status"};
+	private String[] fields={"id","Name","isbn","editorial","edition","language","status","author"};
 	
 	public BookTableModel() {
 		addColumns();
@@ -35,6 +35,7 @@ public class BookTableModel extends EntityTableModel{
 			  booksAsObjects[row][4]=books.get(row).getEdition();
 			  booksAsObjects[row][5]=books.get(row).getLanguage();
 			  booksAsObjects[row][6]=books.get(row).getStatus();
+			  booksAsObjects[row][7]=books.get(row).getAuthors().get(0).getLastName();
 			  
 			  this.addRow(booksAsObjects[row]);
 		  }
