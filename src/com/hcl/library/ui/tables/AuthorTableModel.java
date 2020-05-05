@@ -1,11 +1,8 @@
 package com.hcl.library.ui.tables;
 
 import java.util.List;
-
 import com.hcl.library.model.po.AuthorPO;
-import com.hcl.library.model.po.BookPO;
 import com.hcl.library.service.AuthorService;
-import com.hcl.library.service.BookService;
 
 @SuppressWarnings("serial")
 public class AuthorTableModel extends EntityTableModel{
