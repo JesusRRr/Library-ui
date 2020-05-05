@@ -1,21 +1,19 @@
 package com.hcl.library.ui.view;
 
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 @SuppressWarnings("serial")
 public class BookView extends JFrame{
 	private JPanel mainPanel;
-	private JPanel imagePanel;
+	private BookImage imagePanel;
+	private JPanel titlePanel;
 	private JPanel dataPanel;
-	private BufferedImage image;
+	private JLabel title;
 	
 	public BookView() {
 		this.setSize(800,600);
@@ -27,26 +25,30 @@ public class BookView extends JFrame{
 	}
 	
 	private void initComponents() {
+		titlePanel=new JPanel();
 		mainPanel=new JPanel(null);
-		imagePanel=new JPanel();
+		imagePanel=new BookImage();
 		dataPanel=new JPanel();
+		title=new JLabel("Book Name");
 		
 		mainPanel.setSize(800, 600);
 		this.add(mainPanel);
+	
+		titlePanel.setSize(800, 100);
+		title.setFont(title.getFont().deriveFont(32.0f));
+		titlePanel.add(title);
 		
 		imagePanel.setSize(200,300);
-		imagePanel.setBackground(Color.BLACK);
+		imagePanel.setLocation(0, 100);
 		
-		dataPanel.setSize(600, 600);
-		dataPanel.setLocation(200, 0);
+		dataPanel.setSize(600, 500);
+		dataPanel.setLocation(200, 100);
 		dataPanel.setBackground(Color.DARK_GRAY);
 		
+		mainPanel.add(titlePanel);
 		mainPanel.add(imagePanel);
 		mainPanel.add(dataPanel);
-		getImage();
 	}
 	
-	private void getImage(){
-		
-	}
+	
 }
