@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.hcl.library.model.bo.AuthorBO;
+import com.hcl.library.model.bo.BookBO;
 import com.hcl.library.model.po.AuthorPO;
 import com.hcl.library.model.po.BookPO;
 
@@ -17,7 +19,7 @@ public class BookView extends JFrame{
 	private JPanel titlePanel;
 	private JPanel dataPanel;
 	private JLabel title;
-	private BookPO book;
+	private BookBO book;
 	
 	
 	private FieldPanel isbn;
@@ -28,7 +30,7 @@ public class BookView extends JFrame{
 	private FieldPanel status;
 	private FieldPanel authors;
 
-	public BookView(BookPO book) {
+	public BookView(BookBO book) {
 		this.setSize(800,620);
 		this.setResizable(false);
 		this.setLayout(null);
@@ -50,7 +52,7 @@ public class BookView extends JFrame{
 		status=new FieldPanel("Status: "+book.getStatus().toString());
 		//System.out.println(book.getAuthors().get(0).getFullName());
 		
-		List<AuthorPO> auhtorlist = book.getAuthors();
+		List<AuthorBO> auhtorlist = book.getAuthors();
 		StringBuilder authorsString=new StringBuilder();
 		for(int i=0;i<auhtorlist.size();i++){
 			authorsString.append(auhtorlist.get(i).getName())

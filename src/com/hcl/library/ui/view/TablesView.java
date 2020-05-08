@@ -85,7 +85,7 @@ public class TablesView extends JFrame {
 			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				bookName=entitySelector.getBookTable().getValueAt(entitySelector.getBookTable().getSelectedRow(), 1).toString();
+				bookName=entitySelector.getBookTable().getValueAt(entitySelector.getBookTable().getSelectedRow(), 2).toString();
 				searchField.setText(bookName);
 				 
 			}
@@ -99,7 +99,7 @@ public class TablesView extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BookPO bookFound =BookService.getInstance().findByName(bookName);
+				BookBO bookFound =BookService.getInstance().findByIsbn(bookName);
 				bookView=new BookView(bookFound);
 				bookView.setVisible(true);
 			}
