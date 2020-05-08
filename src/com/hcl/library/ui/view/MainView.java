@@ -9,7 +9,7 @@ import javax.swing.WindowConstants;
 @SuppressWarnings("serial")
 public class MainView extends JFrame{
 	private JPanel mainPanel;
-	private JPanel navBarPanel;
+	private NavBar navBarPanel;
 	private JPanel mainImagePanel;
 	
 	public MainView() {
@@ -24,7 +24,7 @@ public class MainView extends JFrame{
 	}
 	
 	private void initComponents() {
-		navBarPanel= new JPanel();
+		navBarPanel= new NavBar();
 		navBarPanel.setSize(1000, 50);
 		mainPanel.add(navBarPanel);
 	}
