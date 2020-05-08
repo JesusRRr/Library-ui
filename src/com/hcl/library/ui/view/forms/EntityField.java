@@ -1,4 +1,4 @@
-package com.hcl.library.ui.view;
+package com.hcl.library.ui.view.forms;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
