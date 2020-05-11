@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class AddressFieldPanel extends JPanel{
-	
+	private CustomerField customerField;
 	
 	public AddressFieldPanel() {
 		initComponents();
