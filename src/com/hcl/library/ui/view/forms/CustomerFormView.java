@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import com.hcl.library.model.bo.CustomerBO;
 import com.hcl.library.service.CustomerService;
+import com.hcl.library.ui.view.fields.EntityField;
 
 @SuppressWarnings("serial")
 public class CustomerFormView extends EntityFormView{
@@ -36,7 +37,7 @@ public class CustomerFormView extends EntityFormView{
 		
 		List<EntityField> FieldObjects = new ArrayList<>();
 		for(String field: fields) {
-			EntityField fieldObject=new EntityField(field);
+			EntityField fieldObject=new EntityField(field,30);
 			FieldObjects.add(fieldObject);
 			getPanel().add(fieldObject);
 		}
@@ -67,9 +68,6 @@ public class CustomerFormView extends EntityFormView{
 				}
 				customer.setEmail(FieldObjects.get(4).getInput());
 				customer.setPhone(FieldObjects.get(5).getInput());
-				
-				
-			
 				
 				try {
 					CustomerService.getInstance().creatCustomer(customer);

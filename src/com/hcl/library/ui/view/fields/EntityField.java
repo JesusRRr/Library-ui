@@ -1,4 +1,4 @@
-package com.hcl.library.ui.view.forms;
+package com.hcl.library.ui.view.fields;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,9 +10,9 @@ public class EntityField extends JPanel{
 	JLabel entityLabelField;
 	JTextField entityInputField;
 	
-	public EntityField(String field){
+	public EntityField(String field, int size){
 		entityLabelField=new JLabel(field);
-		entityInputField=new JTextField("", 30);
+		entityInputField=new JTextField("", size);
 		this.add(entityLabelField);
 		this.add(entityInputField);
 	}

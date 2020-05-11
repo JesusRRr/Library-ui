@@ -8,6 +8,8 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.hcl.library.ui.view.fields.EntityField;
+
 public class AuthorFormView extends EntityFormView{
 	private JButton submitButton;
 	private JPanel submitPanel;
@@ -26,7 +28,7 @@ public class AuthorFormView extends EntityFormView{
 				);
 		List<EntityField> FieldObjects = new ArrayList<>();
 		for(String field: fields) {
-			EntityField fieldObject=new EntityField(field);
+			EntityField fieldObject=new EntityField(field,30);
 			FieldObjects.add(fieldObject);
 			getPanel().add(fieldObject);
 		}
