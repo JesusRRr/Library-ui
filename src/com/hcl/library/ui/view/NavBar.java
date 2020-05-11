@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.hcl.library.ui.view.forms.BookFormView;
+import com.hcl.library.ui.view.forms.CustomerFormView;
 
 @SuppressWarnings("serial")
 public class NavBar extends JPanel{
@@ -52,5 +53,17 @@ public class NavBar extends JPanel{
 		};
 		
 		allBooks.addActionListener(showAllEntities);
+		
+		ActionListener showCustomerForm = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Customer");	
+				new CustomerFormView().setVisible(true);
+			}
+			
+		};
+		
+		addCustomer.addActionListener(showCustomerForm);
 	}
 }
