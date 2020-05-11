@@ -46,7 +46,7 @@ public class BookFormView extends EntityFormView{
 				"Status"
 			);
 		
-		List<EntityField> FieldObjects = new ArrayList<>();
+		List<BookField> FieldObjects = new ArrayList<>();
 		for(String field: fields) {
 			BookField fieldObject=new BookField(field,30);
 			FieldObjects.add(fieldObject);

@@ -24,12 +24,7 @@ public class EntityField extends JPanel{
 	public String getInput() {
 		return entityInputField.getText();
 	}
-	
-	public StatusBook getBookStatusInput() {
-		String status=entityInputField.getText();
-		return StatusBook.valueOf(status);
-	}
-	
+
 	
 	
 }
