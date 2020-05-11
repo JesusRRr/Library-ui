@@ -13,10 +13,10 @@ public class MainView extends JFrame{
 	private JPanel mainImagePanel;
 	
 	public MainView() {
-		this.setSize(1000,500);
+		this.setSize(1000,1000);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		mainPanel=new JPanel(null);
-		mainPanel.setSize(1000, 500);
+		mainPanel.setSize(1000, 1000);
 		mainPanel.setBackground(Color.BLACK);
 		this.add(mainPanel);
 		

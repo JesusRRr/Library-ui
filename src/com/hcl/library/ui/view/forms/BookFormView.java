@@ -59,8 +59,8 @@ public class BookFormView extends EntityFormView{
 		getPanel().add(authorFieldsPanel.getTablePanel());
 		getPanel().add(submitPanel);
 		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
-		getPanel().setSize(650, getPanel().getComponentCount()*60);
-		getFrame().setSize(700, getPanel().getComponentCount()*65);
+		getPanel().setSize(650, getPanel().getComponentCount()*50);
+		getFrame().setSize(700, getPanel().getComponentCount()*55);
 		
 		
 		ActionListener saveBook=new ActionListener() {
