@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import com.hcl.library.ui.view.fields.EntityField;
 
+@SuppressWarnings("serial")
 public class AuthorFormView extends EntityFormView{
 	private JButton submitButton;
 	private JPanel submitPanel;

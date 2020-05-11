@@ -18,6 +18,7 @@ import javax.swing.WindowConstants;
 import com.hcl.library.exceptions.InvalidFieldException;
 import com.hcl.library.model.bo.BookBO;
 import com.hcl.library.service.BookService;
+import com.hcl.library.ui.view.fields.BookField;
 import com.hcl.library.ui.view.fields.EntityField;
 
 @SuppressWarnings("serial")
@@ -47,7 +48,7 @@ public class BookFormView extends EntityFormView{
 		
 		List<EntityField> FieldObjects = new ArrayList<>();
 		for(String field: fields) {
-			EntityField fieldObject=new EntityField(field,30);
+			BookField fieldObject=new BookField(field,30);
 			FieldObjects.add(fieldObject);
 			getPanel().add(fieldObject);
 		}
