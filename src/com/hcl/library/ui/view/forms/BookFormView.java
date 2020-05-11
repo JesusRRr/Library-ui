@@ -25,7 +25,7 @@ import com.hcl.library.ui.view.fields.EntityField;
 public class BookFormView extends EntityFormView{
 	private JButton submitButton;
 	private List<String> fields;
-	private AuthorFiledsPanel authorFieldsPanel;
+	private AuthorFiledSeccion authorFieldsPanel;
 	
 	private JPanel submitPanel;
 	
@@ -54,7 +54,7 @@ public class BookFormView extends EntityFormView{
 		}
 		submitButton=new JButton("Submit");
 		submitPanel=new JPanel();
-		authorFieldsPanel= new AuthorFiledsPanel();
+		authorFieldsPanel= new AuthorFiledSeccion();
 		
 		submitPanel.add(submitButton);
 		getPanel().add(authorFieldsPanel.getInputPanel());

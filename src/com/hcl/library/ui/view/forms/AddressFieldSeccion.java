@@ -4,11 +4,13 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
+import com.hcl.library.ui.view.fields.CustomerField;
+
 @SuppressWarnings("serial")
-public class AddressFieldPanel extends JPanel{
+public class AddressFieldSeccion extends JPanel{
 	private CustomerField customerField;
 	
-	public AddressFieldPanel() {
+	public AddressFieldSeccion() {
 		initComponents();
 	}
 	
