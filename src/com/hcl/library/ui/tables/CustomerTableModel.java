@@ -20,7 +20,7 @@ public class CustomerTableModel extends PersonTableModel{
 	void addRows() {
 		
 		/*TO-DO
-		 *1.-get book from database 
+		 *1.-get customer from database 
 		 *2.-Do a for-each and addRow to table
 		*/
 	

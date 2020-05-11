@@ -3,8 +3,6 @@ package com.hcl.library.ui.view.forms;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,19 +10,27 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.hcl.library.model.bo.AddressBO;
 import com.hcl.library.model.bo.CustomerBO;
 import com.hcl.library.service.CustomerService;
+import com.hcl.library.ui.view.fields.AddressField;
 import com.hcl.library.ui.view.fields.CustomerField;
-import com.hcl.library.ui.view.fields.EntityField;
 
 @SuppressWarnings("serial")
 public class CustomerFormView extends EntityFormView{
 	private List<String> fields;
+	private List<CustomerField> customerFields;
+	private List<AddressField> addressFields;
 	private JButton submitButton;
 	private JPanel submitPanel;
+	private AddressFieldSeccion addressSeccion;
+	private CustomerBO customer;
+	private AddressBO address;
+	
 	public CustomerFormView() {
 		initComponents();
 	}
+	
 	private void initComponents() {
 		fields =Arrays.asList
 			(
@@ -36,49 +42,62 @@ public class CustomerFormView extends EntityFormView{
 				"Phone"
 			);
 		
-		List<CustomerField> FieldObjects = new ArrayList<>();
-		for(String field: fields) {
-			CustomerField fieldObject=new CustomerField(field,30);
-			FieldObjects.add(fieldObject);
-			getPanel().add(fieldObject);
-		}
+		customerFields = new ArrayList<>();
+		customer = new CustomerBO();
+		address = new AddressBO();
 		submitPanel=new JPanel();
 		submitButton=new JButton("Submit");
-		submitPanel.add(submitButton);
-		getPanel().add(submitPanel);
-		
-		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
-		getPanel().setSize(650, getPanel().getComponentCount()*50);
-		getFrame().setSize(700, getPanel().getComponentCount()*55);
+		addressSeccion= new AddressFieldSeccion();
+		addressFields=addressSeccion.getAddressField();
 	
-		
-		
 		ActionListener saveCustomer=new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CustomerBO customer = new CustomerBO();
-				customer.setName(FieldObjects.get(0).getInput());
-				customer.setLastName(FieldObjects.get(1).getInput());
-				customer.setCurp(FieldObjects.get(2).getInput());
-				try {
-					customer.setBirthday(new SimpleDateFormat("dd/MM/yyyy")
-							.parse(FieldObjects.get(3).getInput()));
-				} catch (ParseException e2) {
-					e2.printStackTrace();
-				}
-				customer.setEmail(FieldObjects.get(4).getInput());
-				customer.setPhone(FieldObjects.get(5).getInput());
+				
+				//TODO make a for each for this operation;
+				customer.setName(customerFields.get(0).getInput());
+				customer.setLastName(customerFields.get(1).getInput());
+				customer.setCurp(customerFields.get(2).getInput());
+				customer.setBirthday(customerFields.get(3).getInputAsDate());
+				customer.setEmail(customerFields.get(4).getInput());
+				customer.setPhone(customerFields.get(5).getInput());
+				
+				
+				address.setNumber(addressFields.get(0).getInputAsInt());
+				address.setStreet(addressFields.get(1).getInput());
+				address.setCity(addressFields.get(2).getInput());
+				address.setState(addressFields.get(3).getInput());
+				address.setCountry(addressFields.get(4).getInput());
+				address.setPostalCode(addressFields.get(5).getInputAsInt());
+				customer.setAddress(address);
 				
 				try {
 					CustomerService.getInstance().creatCustomer(customer);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-				
 			}
 		};
 				
 		submitButton.addActionListener(saveCustomer);
+		
+		addComponents();
+	}
+	
+	private void addComponents() {
+		for(String field: fields) {
+			CustomerField fieldObject=new CustomerField(field,30);
+			customerFields.add(fieldObject);
+			getPanel().add(fieldObject);
+		}
+		
+		getPanel().add(addressSeccion);
+		submitPanel.add(submitButton);
+		getPanel().add(submitPanel);
+		
+		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
+		getPanel().setSize(700, getPanel().getComponentCount()*50);
+		getFrame().setSize(700, getPanel().getComponentCount()*55);
 	}
 }

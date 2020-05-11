@@ -1,7 +1,5 @@
 package com.hcl.library.ui.view.forms;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,17 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
-import com.hcl.library.exceptions.InvalidFieldException;
 import com.hcl.library.model.bo.BookBO;
 import com.hcl.library.service.BookService;
 import com.hcl.library.ui.view.fields.BookField;
-import com.hcl.library.ui.view.fields.EntityField;
-
+//TODO refactor this class
 @SuppressWarnings("serial")
 public class BookFormView extends EntityFormView{
 	private JButton submitButton;
