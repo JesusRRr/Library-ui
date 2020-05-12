@@ -32,6 +32,7 @@ public class CustomerFormView extends EntityFormView{
 	}
 	
 	private void initComponents() {
+		this.setTitle("Customer form");
 		fields =Arrays.asList
 			(
 				"Name",

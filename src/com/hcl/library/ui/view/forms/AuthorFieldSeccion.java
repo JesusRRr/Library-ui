@@ -20,7 +20,7 @@ import com.hcl.library.ui.tables.AuthorTableModel;
 import com.hcl.library.ui.tables.ScrollEntityTable;
 
 @SuppressWarnings("serial")
-public class AuthorFiledSeccion extends JPanel{
+public class AuthorFieldSeccion extends JPanel{
 	JPanel inputPanel;
 	JPanel tablePanel;
 	JLabel nameLabel;
@@ -39,7 +39,7 @@ public class AuthorFiledSeccion extends JPanel{
 
 	
 	
-	public AuthorFiledSeccion() {
+	public AuthorFieldSeccion() {
 		inputPanel=new JPanel();
 		tablePanel=new JPanel(null);
 		nameLabel=new JLabel("Name");

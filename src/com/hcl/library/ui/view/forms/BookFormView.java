@@ -13,12 +13,13 @@ import javax.swing.JPanel;
 import com.hcl.library.model.bo.BookBO;
 import com.hcl.library.service.BookService;
 import com.hcl.library.ui.view.fields.BookField;
-//TODO refactor this class
+
 @SuppressWarnings("serial")
 public class BookFormView extends EntityFormView{
 	private JButton submitButton;
 	private List<String> fields;
-	private AuthorFiledSeccion authorFieldsPanel;
+	private List<BookField> bookFields;
+	private AuthorFieldSeccion authorFieldsPanel;
 	
 	private JPanel submitPanel;
 	
@@ -27,6 +28,8 @@ public class BookFormView extends EntityFormView{
 	}
 	
 	private void initComponents() {
+		this.setTitle("Book Form");
+		BookBO book = new BookBO();
 		fields =Arrays.asList
 			(
 				"Name",
@@ -39,38 +42,25 @@ public class BookFormView extends EntityFormView{
 				"Status"
 			);
 		
-		List<BookField> FieldObjects = new ArrayList<>();
-		for(String field: fields) {
-			BookField fieldObject=new BookField(field,30);
-			FieldObjects.add(fieldObject);
-			getPanel().add(fieldObject);
-		}
+		bookFields = new ArrayList<>();
+		
 		submitButton=new JButton("Submit");
 		submitPanel=new JPanel();
-		authorFieldsPanel= new AuthorFiledSeccion();
-		
-		submitPanel.add(submitButton);
-		getPanel().add(authorFieldsPanel.getInputPanel());
-		getPanel().add(authorFieldsPanel.getTablePanel());
-		getPanel().add(submitPanel);
-		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
-		getPanel().setSize(650, getPanel().getComponentCount()*50);
-		getFrame().setSize(700, getPanel().getComponentCount()*55);
-		
+		authorFieldsPanel= new AuthorFieldSeccion();
 		
 		ActionListener saveBook=new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BookBO book = new BookBO();
-				book.setName(FieldObjects.get(0).getInput());
-				book.setIsbn(FieldObjects.get(1).getInput());
-				book.setEdition(FieldObjects.get(2).getInput());
-				book.setEditorial(FieldObjects.get(3).getInput());
-				book.setCategory(FieldObjects.get(4).getInput());
-				book.setLanguage(FieldObjects.get(5).getInput());
-				book.setBookcover(FieldObjects.get(6).getInput());
-				book.setStatus(FieldObjects.get(7).getBookStatusInput());
+				
+				book.setName(bookFields.get(0).getInput());
+				book.setIsbn(bookFields.get(1).getInput());
+				book.setEdition(bookFields.get(2).getInput());
+				book.setEditorial(bookFields.get(3).getInput());
+				book.setCategory(bookFields.get(4).getInput());
+				book.setLanguage(bookFields.get(5).getInput());
+				book.setBookcover(bookFields.get(6).getInput());
+				book.setStatus(bookFields.get(7).getBookStatusInput());
 				book.setAuthors(authorFieldsPanel.getAuthors());
 				try {
 					BookService.getInstance().createBook(book);
@@ -82,6 +72,23 @@ public class BookFormView extends EntityFormView{
 		};
 				
 		submitButton.addActionListener(saveBook);
+		addComponents();
+	}
+	
+	private void addComponents() {
+		
+		for(String field: fields) {
+			BookField bookfield=new BookField(field,30);
+			bookFields.add(bookfield);
+			getPanel().add(bookfield);
+		}
+		submitPanel.add(submitButton);
+		getPanel().add(authorFieldsPanel.getInputPanel());
+		getPanel().add(authorFieldsPanel.getTablePanel());
+		getPanel().add(submitPanel);
+		getPanel().setLayout(new GridLayout(getPanel().getComponentCount(),1));
+		getPanel().setSize(650, getPanel().getComponentCount()*50);
+		getFrame().setSize(700, getPanel().getComponentCount()*55);
 	}
 
 }
