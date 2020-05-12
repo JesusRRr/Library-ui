@@ -13,8 +13,9 @@ import javax.swing.JPanel;
 import com.hcl.library.model.bo.AddressBO;
 import com.hcl.library.model.bo.CustomerBO;
 import com.hcl.library.service.CustomerService;
-import com.hcl.library.ui.view.fields.AddressField;
-import com.hcl.library.ui.view.fields.CustomerField;
+import com.hcl.library.ui.view.forms.fields.AddressField;
+import com.hcl.library.ui.view.forms.fields.CustomerField;
+import com.hcl.library.ui.view.forms.seccions.AddressFieldSeccion;
 
 @SuppressWarnings("serial")
 public class CustomerFormView extends EntityFormView{

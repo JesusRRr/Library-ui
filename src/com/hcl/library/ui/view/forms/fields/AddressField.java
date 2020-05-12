@@ -1,4 +1,4 @@
-package com.hcl.library.ui.view.fields;
+package com.hcl.library.ui.view.forms.fields;
 
 @SuppressWarnings("serial")
 public class AddressField extends EntityField{

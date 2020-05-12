@@ -1,4 +1,4 @@
-package com.hcl.library.ui.view.forms;
+package com.hcl.library.ui.view.forms.seccions;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import com.hcl.library.ui.view.fields.AddressField;
+import com.hcl.library.ui.view.forms.fields.AddressField;
 
 @SuppressWarnings("serial")
 public class AddressFieldSeccion extends JPanel{

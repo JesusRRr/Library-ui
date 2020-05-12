@@ -12,7 +12,8 @@ import javax.swing.JPanel;
 
 import com.hcl.library.model.bo.BookBO;
 import com.hcl.library.service.BookService;
-import com.hcl.library.ui.view.fields.BookField;
+import com.hcl.library.ui.view.forms.fields.BookField;
+import com.hcl.library.ui.view.forms.seccions.AuthorFieldSeccion;
 
 @SuppressWarnings("serial")
 public class BookFormView extends EntityFormView{

@@ -1,4 +1,4 @@
-package com.hcl.library.ui.view.forms;
+package com.hcl.library.ui.view.forms.seccions;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

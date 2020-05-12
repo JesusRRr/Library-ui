@@ -1,4 +1,4 @@
-package com.hcl.library.ui.view.fields;
+package com.hcl.library.ui.view.forms.fields;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
