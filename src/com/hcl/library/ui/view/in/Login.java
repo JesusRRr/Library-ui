@@ -29,10 +29,10 @@ public class Login extends PanelTemplate{
 		
 		title = new JLabel("Log-in");
 		title.setSize(100,20);
-		user = new EntityField("user", 10);
-		user.setBackground(COLOR);
-		password = new EntityField("password",10);
-		password.setBackground(COLOR);
+		user = new EntityField("user", 100,150);
+		//user.setBackground(COLOR);
+		password = new EntityField("password",100,150);
+		//password.setBackground(COLOR);
 		submit = new JButton("Log-in");
 		submit.setSize(100, 30);
 		addComponents();

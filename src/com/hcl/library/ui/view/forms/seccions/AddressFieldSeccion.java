@@ -38,7 +38,7 @@ public class AddressFieldSeccion extends JPanel{
 	
 	private void addComponents() {
 		for(String field: fields) {
-			AddressField fieldObject=new AddressField(field,10);
+			AddressField fieldObject=new AddressField(field,100,120);
 			addressFields.add(fieldObject);
 			this.add(fieldObject);
 		}

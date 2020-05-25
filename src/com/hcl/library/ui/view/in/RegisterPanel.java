@@ -12,7 +12,7 @@ public class RegisterPanel extends PanelTemplate{
 	
 	
 	public RegisterPanel() {
-		this.setSize(500,1000);
+
 		this.setBackground(Color.white);
 		this.setLayout(null);
 		initComponents();
@@ -23,18 +23,16 @@ public class RegisterPanel extends PanelTemplate{
 		login = new Login();
 		signin = new Signin();
 		
-		
 		addComponents();
 	}
 
 	@Override
-	protected void addComponents() {
+	protected void addComponents(){
 		this.add(login);
-		this.add(signin);
-		this.setPlace(login,HorizontalPosition.CENTER);
-		
+		this.add(signin);	
 		login.setLocation(0, 0);
 		signin.setLocation(0, login.getHeight());
+		this.setSize(login.getWidth(),login.getHeight()+signin.getHeight());
 	}
 
 }

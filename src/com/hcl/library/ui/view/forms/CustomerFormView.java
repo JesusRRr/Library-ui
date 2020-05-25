@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import com.hcl.library.model.bo.AddressBO;
 import com.hcl.library.model.bo.CustomerBO;
@@ -89,9 +90,9 @@ public class CustomerFormView extends EntityFormView{
 	
 	private void addComponents() {
 		for(String field: fields) {
-			CustomerField fieldObject=new CustomerField(field,30);
+			CustomerField fieldObject=new CustomerField(field,100,300);
 			customerFields.add(fieldObject);
-			getPanel().add(fieldObject);
+			getPanel().add(fieldObject,SwingConstants.CENTER);
 		}
 		
 		getPanel().add(addressSeccion);

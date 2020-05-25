@@ -1,5 +1,6 @@
 package com.hcl.library.ui.view.forms;
 
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -79,11 +80,13 @@ public class BookFormView extends EntityFormView{
 	private void addComponents() {
 		
 		for(String field: fields) {
-			BookField bookfield=new BookField(field,30);
+			BookField bookfield=new BookField(field,150,300);
 			bookFields.add(bookfield);
 			getPanel().add(bookfield);
 		}
 		submitPanel.add(submitButton);
+	
+		
 		getPanel().add(authorFieldsPanel.getInputPanel());
 		getPanel().add(authorFieldsPanel.getTablePanel());
 		getPanel().add(submitPanel);

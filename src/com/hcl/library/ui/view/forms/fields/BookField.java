@@ -5,8 +5,8 @@ import com.hcl.library.model.enums.StatusBook;
 @SuppressWarnings("serial")
 public class BookField extends EntityField{
 	
-	public BookField(String field, int size) {
-		super(field,size);
+	public BookField(String field, int labelSize, int inputSize) {
+		super(field, labelSize,inputSize);
 		
 	}
 	

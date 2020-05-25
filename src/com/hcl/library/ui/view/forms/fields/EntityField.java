@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import com.hcl.library.templates.PanelTemplate;
 
@@ -13,27 +14,27 @@ public class EntityField extends PanelTemplate{
 	JLabel entityLabelField;
 	JTextField entityInputField;
 	private String field;
-	private int size;
-	JLabel space;
+	private int labelSize;
+	private int inputSize;
 	
-	public EntityField(String field, int size){
+	public EntityField(String field, int labelSize, int inputSize){
 		
 		this.field=field;
-		this.size=size;
+		this.labelSize=labelSize;
+		this.inputSize=inputSize;
 		this.setLayout(null);
-		this.setSize(300,25);
-		this.setBackground(Color.gray);
+		this.setSize(labelSize+inputSize,25);
 		initComponents();
 	}
 	
 	@Override
 	protected void initComponents() {
-		entityLabelField=new JLabel(field);
-		entityLabelField.setSize(150,25);
+		entityLabelField=new JLabel(field, SwingConstants.RIGHT);
+		entityLabelField.setSize(labelSize,25);
 		entityLabelField.setLocation(0,0);
 		entityInputField=new JTextField();
-		entityInputField.setSize(150,25);
-		entityInputField.setLocation(100,0);
+		entityInputField.setSize(inputSize,25);
+		entityInputField.setLocation(entityLabelField.getWidth(),0);
 		
 		addComponents();
 	}

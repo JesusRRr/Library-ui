@@ -31,11 +31,11 @@ public class Signin extends PanelTemplate{
 	protected void initComponents() {
 		title = new JLabel("Sign-in");
 		title.setSize(100, 30);
-		name = new EntityField("Name", 15);
-		lastName= new EntityField("Last name", 15);
-		user= new EntityField("User", 15);
-		password= new EntityField("Password", 15);
-		confirmPassword= new EntityField("Confirm", 15);
+		name = new EntityField("Name", 100,150);
+		lastName= new EntityField("Last name", 100,150);
+		user= new EntityField("User", 100,150);
+		password= new EntityField("Password", 100,150);
+		confirmPassword= new EntityField("Confirm", 100,150);
 		submit=new JButton("Sign-in");
 		submit.setSize(100, 30);
 		addComponents();

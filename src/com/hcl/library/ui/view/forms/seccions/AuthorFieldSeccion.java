@@ -52,7 +52,7 @@ public class AuthorFieldSeccion extends JPanel{
 		authorTableModel = new DefaultTableModel();
 		authorTable = new JTable(authorTableModel);
 		scrollAuthorTable=new JScrollPane(authorTable);
-		scrollAuthorTable.setBounds(80, 0, 500, 60);
+		scrollAuthorTable.setBounds(80, 0, 500, 50);
 		scrollAuthorTable.setVerticalScrollBarPolicy(22);
 		authors=new ArrayList<>();
 

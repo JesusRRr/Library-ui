@@ -12,7 +12,6 @@ public class Welcome extends JFrame{
 	
 	public Welcome() {
 		this.setLayout(null);
-		this.setSize(1000,1000);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		initComponents();
 	}
@@ -24,6 +23,6 @@ public class Welcome extends JFrame{
 	
 	private void addComponents() {
 		this.add(register);
-	
+		this.setSize(register.getWidth(),register.getHeight());
 	}
 }

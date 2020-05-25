@@ -7,8 +7,8 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class CustomerField extends EntityField{
 	
-	public CustomerField(String field, int size) {
-		super(field,size);
+	public CustomerField(String field, int labelSize, int inputSize) {
+		super(field, labelSize,inputSize);
 	}
 	
 	public Date getInputAsDate() {
