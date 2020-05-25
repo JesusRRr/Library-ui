@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import com.hcl.library.templates.HorizontalPosition;
 import com.hcl.library.templates.PanelTemplate;
 import com.hcl.library.ui.view.forms.fields.EntityField;
 
@@ -18,29 +19,36 @@ public class Login extends PanelTemplate{
 	private JButton submit;
 	private Color COLOR=Color.gray;
 	public Login() {
-		this.setLayout(new GridBagLayout());
-		this.setSize(500,100);
+		this.setLayout(null);
+		this.setSize(500,150);
 		this.setBackground(COLOR);
 		initComponents();
 	}
 	
 	protected void initComponents() {
-		constraints = new GridBagConstraints();
+		
 		title = new JLabel("Log-in");
+		title.setSize(100,20);
 		user = new EntityField("user", 10);
 		user.setBackground(COLOR);
 		password = new EntityField("password",10);
 		password.setBackground(COLOR);
 		submit = new JButton("Log-in");
+		submit.setSize(100, 30);
 		addComponents();
 	}
 	
 	protected void addComponents() {	
 		
-		this.add(title,this.setConstraints(0,0,3,1));
-		this.add(user,this.setConstraints(0,1,1,1));
-		this.add(password,this.setConstraints(1,1,1,1));
-		this.add(submit,this.setConstraints(2,1,1,1));
+		this.add(title);
+		this.add(user);
+		this.add(password);
+		this.add(submit);
+		
+		this.setPlace(title, HorizontalPosition.CENTER);
+		this.setPlace(user, HorizontalPosition.CENTER);
+		this.setPlace(password, HorizontalPosition.CENTER);
+		this.setPlace(submit, HorizontalPosition.CENTER);
 	}
 
 }
