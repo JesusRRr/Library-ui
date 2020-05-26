@@ -1,8 +1,5 @@
 package com.hcl.library.ui.view.forms.fields;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -10,15 +7,14 @@ import javax.swing.SwingConstants;
 
 import com.hcl.library.templates.PanelTemplate;
 
-@SuppressWarnings("serial")
-public class EntityField extends PanelTemplate{
+public class PasswordField extends PanelTemplate{
 	JLabel entityLabelField;
-	JTextField entityInputField;
+	JPasswordField passwordField;
 	private String field;
 	private int labelSize;
 	private int inputSize;
 	
-	public EntityField(String field, int labelSize, int inputSize){
+	public PasswordField(String field, int labelSize, int inputSize){
 		
 		this.field=field;
 		this.labelSize=labelSize;
@@ -34,9 +30,9 @@ public class EntityField extends PanelTemplate{
 		entityLabelField=new JLabel(field, SwingConstants.RIGHT);
 		entityLabelField.setSize(labelSize,25);
 		entityLabelField.setLocation(0,0);
-		entityInputField=new JTextField();
-		entityInputField.setSize(inputSize,25);
-		entityInputField.setLocation(entityLabelField.getWidth(),0);
+		passwordField=new JPasswordField();
+		passwordField.setSize(inputSize,25);
+		passwordField.setLocation(entityLabelField.getWidth(),0);
 		
 		addComponents();
 	}
@@ -44,7 +40,7 @@ public class EntityField extends PanelTemplate{
 	@Override
 	protected void addComponents() {
 		this.add(entityLabelField);
-		this.add(entityInputField);
+		this.add(passwordField);
 	}
 
 	public String getEntityLabelField() {
@@ -52,15 +48,11 @@ public class EntityField extends PanelTemplate{
 	}
 	
 	public String getInput() {
-		return entityInputField.getText();
+		return String.valueOf(passwordField.getPassword());
 	}
 	
 	public void setInput(String input) {
-		entityInputField.setText(input);
+		passwordField.setText(input);
 	}
-	
-	
-
-	
 	
 }
