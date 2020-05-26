@@ -12,7 +12,7 @@ public class Index {
 		//new TablesView().setVisible(true);
 		//new BookFormView().setVisible(false);
 		//new BookView().setVisible(false);
-		new MainView().setVisible(true);
+		//new MainView().setVisible(true);
 		new Welcome().setVisible(true);
 		//new FramePrueba().setVisible(true);
 	}

@@ -7,8 +7,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import com.hcl.library.service.StaffService;
 import com.hcl.library.templates.HorizontalPosition;
 import com.hcl.library.templates.PanelTemplate;
 import com.hcl.library.ui.view.forms.fields.EntityField;
@@ -32,9 +34,9 @@ public class Login extends PanelTemplate{
 		
 		title = new JLabel("Log-in", SwingConstants.CENTER);
 		title.setSize(100,20);
-		user = new EntityField("user", 100,150);
+		user = new EntityField("user: ", 100,150);
 		user.setBackground(COLOR);
-		password = new PasswordField("password",100,150);
+		password = new PasswordField("password: ",100,150);
 		password.setBackground(COLOR);
 		submitButton = new JButton("Log-in");
 		submitButton.setSize(100, 30);
@@ -45,8 +47,16 @@ public class Login extends PanelTemplate{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("click");
 				
+				if(StaffService.getInstance().findByUserName(user.getInput())!=null) {
+					if((StaffService.getInstance().getPassword(user.getInput()).contentEquals(password.getInput()))){
+						JOptionPane.showMessageDialog(null, "hello");
+					}else {
+						JOptionPane.showMessageDialog(null, "password incorrect");
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "user not found");
+				}
 			}
 		};
 		

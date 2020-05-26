@@ -61,6 +61,8 @@ public class Signin extends PanelTemplate{
 					staff.setPassword(password.getInput());
 					
 					StaffService.getInstance().saveStaff(staff);
+					JOptionPane.showMessageDialog(null,staff.getName()+" registered");
+
 					cleanFields();
 				}else {
 					JOptionPane.showMessageDialog(null,"Password doesn't match");
