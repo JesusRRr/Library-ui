@@ -20,7 +20,7 @@ public class BookView extends JFrame{
 	private JPanel dataPanel;
 	private JLabel title;
 	private BookBO book;
-	
+	private LoanButtonPanel loanButtonPanel;
 	
 	private FieldPanel isbn;
 	private FieldPanel edition;
@@ -50,7 +50,7 @@ public class BookView extends JFrame{
 		category=new FieldPanel("Category: "+book.getCategory());
 		language=new FieldPanel("Language: "+book.getLanguage());
 		status=new FieldPanel("Status: "+book.getStatus().toString());
-		//System.out.println(book.getAuthors().get(0).getFullName());
+		loanButtonPanel= new LoanButtonPanel();
 		
 		List<AuthorBO> auhtorlist = book.getAuthors();
 		StringBuilder authorsString=new StringBuilder();
@@ -76,6 +76,9 @@ public class BookView extends JFrame{
 		imagePanel.setSize(200,300);
 		imagePanel.setLocation(0, 100);
 		
+		loanButtonPanel.setSize(200,200);
+		loanButtonPanel.setLocation(0, 400);
+		
 		dataPanel.setSize(600, 500);
 		dataPanel.setLocation(200, 100);
 		dataPanel.add(isbn);
@@ -89,6 +92,7 @@ public class BookView extends JFrame{
 		mainPanel.add(titlePanel);
 		mainPanel.add(imagePanel);
 		mainPanel.add(dataPanel);
+		mainPanel.add(loanButtonPanel);
 	}
 	
 	

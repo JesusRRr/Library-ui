@@ -17,8 +17,8 @@ public class MainView extends JFrame{
 	private JPanel mainImagePanel;
 	
 	public MainView() {
-		staff=StaffLogged.getStaff();
-		this.setTitle(staff.getName());
+		//staff=StaffLogged.getStaff();
+		//this.setTitle(staff.getName());
 		this.setSize(1000,1000);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		mainPanel=new JPanel(null);
