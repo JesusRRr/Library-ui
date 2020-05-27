@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
+import com.hcl.library.StaffLogged;
+import com.hcl.library.model.bo.StaffBO;
 import com.hcl.library.service.StaffService;
 import com.hcl.library.ui.view.forms.fields.EntityField;
 import com.hcl.library.ui.view.forms.fields.PasswordField;
@@ -16,6 +18,7 @@ import com.sun.glass.events.WindowEvent;
 
 @SuppressWarnings("serial")
 public class Register extends JFrame{
+	private StaffBO staff;
 	private RegisterPanel register;
 	private JButton loginButton;
 	private EntityField user;
@@ -39,10 +42,10 @@ public class Register extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				if(StaffService.getInstance().findByUserName(user.getInput())!=null) {
+				staff=StaffService.getInstance().findByUserName(user.getInput());
+				if(staff!=null) {
 					if(StaffService.getInstance().checkPassword(user.getInput(),password.getInput() )){
-						
+						StaffLogged.setStaff(staff);
 						new MainView().setVisible(true);
 						dispose();
 					}else {

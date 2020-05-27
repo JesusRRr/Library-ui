@@ -6,17 +6,20 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.hcl.library.model.bo.StaffBO;
 import com.hcl.library.ui.view.forms.BookFormView;
 import com.hcl.library.ui.view.forms.CustomerFormView;
 
 @SuppressWarnings("serial")
 public class NavBar extends JPanel{
+	private StaffBO staff;
 	private JButton allBooks;
 	private JButton addBook;
 	private JButton addCustomer;
 	private JButton staffPerfil;
 	
 	public NavBar() {
+		
 		initComponents();
 	}
 	
@@ -46,7 +49,7 @@ public class NavBar extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Que show");	
+	
 				new TablesView().setVisible(true);
 			}
 			
