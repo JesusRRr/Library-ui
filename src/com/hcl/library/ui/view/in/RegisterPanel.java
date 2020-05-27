@@ -34,5 +34,9 @@ public class RegisterPanel extends PanelTemplate{
 		this.setSize(login.getWidth(),login.getHeight()+signin.getHeight());
 
 	}
+	
+	public Login getLogin() {
+		return this.login;
+	}
 
 }

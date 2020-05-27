@@ -1,16 +1,11 @@
 package com.hcl.library.ui.view.in;
 
 import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
-import com.hcl.library.service.StaffService;
 import com.hcl.library.templates.HorizontalPosition;
 import com.hcl.library.templates.PanelTemplate;
 import com.hcl.library.ui.view.forms.fields.EntityField;
@@ -41,26 +36,7 @@ public class Login extends PanelTemplate{
 		submitButton = new JButton("Log-in");
 		submitButton.setSize(100, 30);
 		addComponents();
-		
-		
-		ActionListener login = new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				if(StaffService.getInstance().findByUserName(user.getInput())!=null) {
-					if((StaffService.getInstance().getPassword(user.getInput()).contentEquals(password.getInput()))){
-						JOptionPane.showMessageDialog(null, "hello");
-					}else {
-						JOptionPane.showMessageDialog(null, "password incorrect");
-					}
-				}else {
-					JOptionPane.showMessageDialog(null, "user not found");
-				}
-			}
-		};
-		
-		submitButton.addActionListener(login);
+	
 	}
 	
 	protected void addComponents() {	
@@ -76,6 +52,18 @@ public class Login extends PanelTemplate{
 		this.setPlace(password, HorizontalPosition.CENTER);
 		this.setPlace(submitButton, HorizontalPosition.CENTER);
 		
+	}
+	
+	public JButton getSubmitButton() {
+		return this.submitButton;
+	}
+	
+	public EntityField getUser() {
+		return this.user;
+	}
+	
+	public PasswordField getPassword() {
+		return this.password;
 	}
 	
 }
