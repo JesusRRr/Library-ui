@@ -1,41 +1,46 @@
 package com.hcl.library.ui.view;
 
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import com.hcl.library.templates.PanelTemplate;
+import com.hcl.library.ui.comboboxes.CustomerSelector;
 
 @SuppressWarnings("serial")
-public class LoanButtonPanel extends PanelTemplate{
+public class LoanPanel extends PanelTemplate{
+	private JLabel title;
 	private JButton loanBookButton;
-	private JComboBox<String> custumerSelector;
+	private CustomerSelector customerSelector;
 	
 	
-	public LoanButtonPanel() {
+	public LoanPanel() {
 		this.setLayout(new GridLayout(2,1));
-		this.setSize(200, 200);
+		this.setSize(100,100);
+		this.setBackground(Color.GRAY);
 		initComponents();
 	}
 	@Override
 	protected void initComponents() {
 		loanBookButton=new JButton("Loan Book");	
-		
+		customerSelector=new CustomerSelector();
 		
 		addComponents();
 	}
 
 	@Override
 	protected void addComponents() {
+		this.add(customerSelector);
 		this.add(loanBookButton);
 	}
 	
 	public JButton getLoanBookButton() {
 		return this.loanBookButton;
 	}
+	
 	
 
 }

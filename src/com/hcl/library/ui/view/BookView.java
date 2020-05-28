@@ -1,6 +1,8 @@
 package com.hcl.library.ui.view;
 
 import java.awt.GridLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -20,7 +22,7 @@ public class BookView extends JFrame{
 	private JPanel dataPanel;
 	private JLabel title;
 	private BookBO book;
-	private LoanButtonPanel loanButtonPanel;
+	private LoanPanel loanButtonPanel;
 	
 	private FieldPanel isbn;
 	private FieldPanel edition;
@@ -41,6 +43,7 @@ public class BookView extends JFrame{
 	
 	private void initComponents() {
 		titlePanel=new JPanel();
+		title=new JLabel(book.getName());
 		mainPanel=new JPanel(null);
 		imagePanel=new BookImage(book.getName());
 		dataPanel=new JPanel(new GridLayout(7,1));
@@ -50,7 +53,7 @@ public class BookView extends JFrame{
 		category=new FieldPanel("Category: "+book.getCategory());
 		language=new FieldPanel("Language: "+book.getLanguage());
 		status=new FieldPanel("Status: "+book.getStatus().toString());
-		loanButtonPanel= new LoanButtonPanel();
+		loanButtonPanel= new LoanPanel();
 		
 		List<AuthorBO> auhtorlist = book.getAuthors();
 		StringBuilder authorsString=new StringBuilder();
@@ -64,8 +67,12 @@ public class BookView extends JFrame{
 			}
 		}
 		authors=new FieldPanel("Author: "+ authorsString.toString());
+
 		
-		title=new JLabel(book.getName());
+		addComponents();
+	}
+	
+	public void addComponents() {
 		mainPanel.setSize(800, 600);
 		this.add(mainPanel);
 	

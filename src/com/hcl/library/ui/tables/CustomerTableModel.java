@@ -2,7 +2,7 @@ package com.hcl.library.ui.tables;
 
 import java.util.List;
 
-import com.hcl.library.model.po.CustomerPO;
+import com.hcl.library.model.bo.CustomerBO;
 import com.hcl.library.service.CustomerService;
 
 @SuppressWarnings("serial")
@@ -27,7 +27,7 @@ public class CustomerTableModel extends PersonTableModel{
 	}
 	
 	private void refreshData() {
-		  List<CustomerPO> customers= CustomerService.getInstance().findAll();
+		  List<CustomerBO> customers= CustomerService.getInstance().findAll();
 
 		  Object[][] CustomerAsObjects = new  Object[customers.size()][fields.length];
 		  for(int row=0;row<customers.size();row++) {
