@@ -12,7 +12,6 @@ import com.hcl.library.ui.comboboxes.CustomerSelector;
 
 @SuppressWarnings("serial")
 public class LoanPanel extends PanelTemplate{
-	private JLabel title;
 	private JButton loanBookButton;
 	private CustomerSelector customerSelector;
 	
@@ -41,6 +40,9 @@ public class LoanPanel extends PanelTemplate{
 		return this.loanBookButton;
 	}
 	
+	public CustomerSelector getCustomerSelector() {
+		return this.customerSelector;
+	}
 	
 
 }
